@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ResourceModel::class, function ($app) {
+            return $app->make(config('resource.types')[request('type')]);
+        });
     }
 
     /**
