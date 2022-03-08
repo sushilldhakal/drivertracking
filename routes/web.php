@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth')->group(function(){
-    Route::view('/','welcome');
+   
     Route::resource('resource','ResourceController');
+    
 });
 
 Route::middleware('guest')->group(function(){
     Route::post('login','AuthController@login');
     Route::post('sign-up','UserController@create');
+    
 });
+
+Route::view('/','welcome');
