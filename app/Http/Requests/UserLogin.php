@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Models\OTP;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\UnauthorizedException;
 
 class UserLogin extends FormRequest
 {
@@ -15,26 +13,8 @@ class UserLogin extends FormRequest
      */
     public function authorize()
     {
-      
 
-        if($this->otp) {
-            $otp = OTP::where('otp',$this->otp)->notExpired()->first();
-            
-            if(!$otp) {
-                throw new UnauthorizedException('Failed to validate OTP');
-            }
-
-            auth()->loginUsingId($otp->user_id);
-
-            return true;
-
-        }
-
-        if(auth()->attempt($this->only(['email','password']))) {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     /**
@@ -45,9 +25,7 @@ class UserLogin extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|email|exists:users,email',
-            'password'=>'required_if:otp,null',
-            'otp'=>'required_if:password,null'
+            'pincode' => 'required|exists:users,pin'
         ];
     }
 }

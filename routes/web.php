@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('auth')->group(function(){
    
     Route::resource('resource','ResourceController');
     
 });
 
+Route::post('login','AuthController@login');
+Route::view('punch-in','Form.index');
+
 Route::middleware('guest')->group(function(){
-    Route::post('login','AuthController@login');
     Route::post('sign-up','UserController@create');
-    
 });
 
 Route::view('/','welcome');

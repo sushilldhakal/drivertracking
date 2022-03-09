@@ -15,15 +15,7 @@ class AuthController extends Controller
 
     public function login(UserLogin $request)
     {
-        $token = $request->user()->createToken($request->get('token_name','first_device'));
-
-        activity('user')
-                ->performedOn($request->user())
-                ->causedBy($request->user())
-                ->withProperties($request->validated())
-                ->log('Login Token has been created');
-    
-        return ['token' => $token->plainTextToken];
+        return redirect('/punch-in');
     }   
 
     public function loginUsingOTP(SendOTP $request)
