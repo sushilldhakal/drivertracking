@@ -26,3 +26,6 @@ Route::middleware('guest')->group(function(){
 });
 
 Route::view('/','welcome');
+Route::view('/dashboard','Dashboard.index');
+Route::view('/login','Pin.index');
+Route::view('/form','Form.index');
