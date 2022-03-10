@@ -73,6 +73,10 @@
 
 
         });
+
+        @if ($errors->any())
+            alert('Invalid Pin')    
+        @endif
     </script>
 </body>
 

@@ -14,11 +14,8 @@ class UserLogin extends FormRequest
      */
     public function authorize()
     {
-        $user = User::wherePin($this->get('pincode'))->first();
         
-        auth()->login($user);
-
-        return $user;
+        return true;
     }
 
     /**

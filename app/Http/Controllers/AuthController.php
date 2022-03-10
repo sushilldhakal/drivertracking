@@ -15,6 +15,8 @@ class AuthController extends Controller
 
     public function login(UserLogin $request)
     {
+        User::wherePin($request->get('pincode'))->first()->login();
+
         return redirect('/punch-in');
     }   
 
