@@ -32,3 +32,4 @@ Route::view('/','welcome');
 Route::view('/dashboard','Dashboard.index');
 Route::view('/login','Pin.index');
 Route::view('/form','Form.index');
+Route::view('/admin','Admin.index');

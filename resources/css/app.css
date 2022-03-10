@@ -110,7 +110,7 @@
 .show-break .d-show {
     display: none !important;
 }
-.show-break .d-hide {
+.show-break .d-none {
     display: block !important;
 }
 
