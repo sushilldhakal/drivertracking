@@ -25,7 +25,7 @@ class StoreResource extends FormRequest
      */
     public function rules()
     {
-        return ['type' => 'required|bail|in:' . implode(',',array_keys(config('resource.types'))), 'name' => 'required', 'tags'=>'array', 'description' => 'required'] + $this->pickSpecificRules($this->get('type'));
+        return ['resource_type' => 'required|bail|in:' . implode(',', array_keys(config('resource.types')))] + $this->pickSpecificRules($this->get('type'));
     }
 
     public function pickSpecificRules($type)
@@ -36,6 +36,11 @@ class StoreResource extends FormRequest
     public function setOfRules()
     {
         return [
+            'log' => [
+                'location_id' => 'nullable',
+                'type' =>'required',
+                'image' => 'nullable',
+            ],
         ];
     }
 }

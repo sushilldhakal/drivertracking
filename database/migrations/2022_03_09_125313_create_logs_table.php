@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('location_id');
             $table->string('image_id');
             $table->string('load_type');
-            $table->string('cage');
-            $table->string('pallet');
+            $table->string('cage')->nullable();
+            $table->string('pallet')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

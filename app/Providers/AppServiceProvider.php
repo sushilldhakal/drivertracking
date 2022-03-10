@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Interfaces\ResourceModel;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ResourceModel::class, function ($app) {
-            return $app->make(config('resource.types')[request('type')]);
+            return $app->make(config('resource.types')[request('resource_type')]);
         });
     }
 

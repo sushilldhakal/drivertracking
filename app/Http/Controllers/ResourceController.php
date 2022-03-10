@@ -8,6 +8,7 @@ use App\Http\Requests\ListResource;
 use App\Http\Requests\StoreResource;
 use App\Http\Requests\UpdateResource;
 use App\Interfaces\ResourceModel;
+use Illuminate\Support\Facades\Storage;
 
 class ResourceController extends Controller
 {
@@ -30,11 +31,19 @@ class ResourceController extends Controller
      */
     public function store(StoreResource $request, ResourceModel $model)
     {
-        $model->createWith($request->validated());
+        $model->user_id = auth()->id();
+        
+        $model->fill($request->only($model->fillable));
 
-        $model->attachTags($request->get('tags',[]));
+        if($request->has('image')) {
+            $model->image_id = $model->storeImage($request->get('image'));
+        }
+       
+        $model->save();
 
-        return $model;
+        auth()->logout();
+
+        return redirect('/login');
     }
 
     /**

@@ -16,19 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth')->group(function(){
-   
     Route::resource('resource','ResourceController');
-    
+    Route::view('punch-in','Form.index');
 });
 
 Route::post('login','AuthController@login');
-Route::view('punch-in','Form.index');
-
-Route::middleware('guest')->group(function(){
-    Route::post('sign-up','UserController@create');
-});
 
 Route::view('/','welcome');
 Route::view('/dashboard','Dashboard.index');
-Route::view('/login','Pin.index');
-Route::view('/form','Form.index');
+Route::view('/login','Pin.index')->name('login');
