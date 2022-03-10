@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +24,4 @@ Route::post('login','AuthController@login');
 Route::view('/','welcome');
 Route::view('/dashboard','Dashboard.index');
 Route::view('/login','Pin.index')->name('login');
+Route::view('/admin','Admin.index');
