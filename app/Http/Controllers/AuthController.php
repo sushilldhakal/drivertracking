@@ -20,4 +20,13 @@ class AuthController extends Controller
         return redirect('/punch-in');
     }   
 
+    public function break()
+    {
+        $user = auth()->user();
+        $user->break = !$user->break;
+        $user->save();
+
+        return to_route('main');
+    }
+
 }

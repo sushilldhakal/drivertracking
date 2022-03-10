@@ -40,6 +40,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'break' => 'boolean'
     ];
 
 
@@ -63,5 +64,10 @@ class User extends Authenticatable
     public function login()
     {
         auth()->login($this);
+    }
+
+    public function isInBreak()
+    {
+        return $this->break;
     }
 }

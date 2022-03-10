@@ -20,6 +20,16 @@
 
     <div class="app-container app-theme-grey">
         <div class="login-container p-4">
+            <div class="form-group row">
+                <label class="col-md-5 col-form-label font-weight-bold">Want a break?</label>
+
+                <div class="col-md-7">
+                    <a class="btn btn-danger btn-lg btn-toggle" href="{{url('/break')}}">
+                        <span class="d-show">Take a break</span>
+                    </a>
+                </div>
+            </div>
+                
             <div class="mb-5 text-center">
                 <img src="<?php echo '../../img/full_logo_inverse.svg' ?>" class="img-fluid mb-3">
                 <h3>Please fill out this form</h3>
@@ -28,6 +38,7 @@
             <div class="video-section">
                 <video id="player" autoplay="true" class="video-wrapper"></video>
                 <button id="capture" class="btn btn-danger">Capture</button>
+                <br>
                 <canvas id="snapshot" width=320 height=240></canvas>
 
             </div>
@@ -66,17 +77,6 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-5 col-form-label font-weight-bold">Want a break?</label>
-
-                    <div class="col-md-7">
-                        <a class="btn btn-danger btn-lg btn-toggle" href="#" onclick="toggle()">
-                            <span class="d-show">Take a break</span>
-                            <span class="d-none">End Break</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="form-group row">
                     <label class="col-md-5 col-form-label font-weight-bold">Load/Unload</label>
 
                     <div class="col-md-7">
@@ -96,7 +96,7 @@
                             <label class="col-md-5 col-form-label font-weight-bold">Load Cage</label>
 
                             <div class="col-md-7">
-                                <input type="number" class="form-control" id="validationCustom01" value="0" name="cage" placeholder="Number of load cage" required="">
+                                <input type="number" class="form-control" id="validationCustom01" min='1' value="0" name="cage" placeholder="Number of load cage" required="">
                             </div>
                         </div>
 
@@ -104,12 +104,12 @@
                             <label class="col-md-5 col-form-label font-weight-bold">Load Pallet</label>
 
                             <div class="col-md-7">
-                                <input type="number" class="form-control" id="validationCustom01" value="0" name="pallet" placeholder="Number of load palette" required="">
+                                <input type="number" class="form-control" id="validationCustom01" min='1' value="0" name="pallet" placeholder="Number of load palette" required="">
                             </div>
                         </div>
                     </div>
                 </template>
-                <input type="submit" onclick="checkIfAllOk()" class="btn btn-danger" value="Submit">
+                <input type="submit" onclick="return checkIfAllOk()" class="btn btn-danger" value="Submit">
             </form>
         </div>
     </div>
@@ -117,6 +117,15 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
+        function toggle() {
+            var x = document.getElementsByClassName("load-action");
+            if (x[0].style.display === "none") {
+                x[0].style.display = "block";
+            } else {
+                x[0].style.display = "none";
+            }
+        }
+
         function checkIfAllOk() {
             with(document.forms[0]) {
                 if (image.value === '') {

@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth')->group(function(){
-    Route::resource('resource','ResourceController');
-    Route::view('punch-in','Form.index');
+    Route::middleware('not-in-break')->group(function(){
+        Route::resource('resource','ResourceController');
+        Route::view('punch-in','Form.index')->name('main');
+    });
+    Route::get('break','AuthController@break');
+    Route::view('/is-in-break','break');
 });
 
 Route::post('login','AuthController@login');
