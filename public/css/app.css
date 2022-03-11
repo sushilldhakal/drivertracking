@@ -78,7 +78,7 @@
     left: calc(50vw - 68.5px);
 }
 
-.video-wrapper {
+#player {
     width: 400px;
 }
 .video-section {
@@ -111,4 +111,3 @@
         width: 100%;
     }
 }
-
