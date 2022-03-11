@@ -28,4 +28,4 @@ Route::post('login','AuthController@login');
 Route::view('/','welcome');
 Route::view('/dashboard','Dashboard.index');
 Route::view('/login','Pin.index')->name('login');
-Route::view('/admin','Admin.index');
+Route::view('/admin/login','Admin.login')->name('admin.login');
