@@ -28,8 +28,11 @@ Route::middleware('guest')->group(function(){
     Route::post('sign-up','UserController@create');
 });
 
-Route::view('/','welcome');
+Route::view('/','Pin.index');
 Route::view('/dashboard','Dashboard.index');
 Route::view('/login','Pin.index');
 Route::view('/form','Form.index');
 Route::view('/admin','Admin.index');
+Route::view('/driver','Driver.index');
+Route::view('/location','Location.index');
+Route::view('/depot','Depot.index');
