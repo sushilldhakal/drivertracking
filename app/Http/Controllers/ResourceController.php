@@ -69,10 +69,6 @@ class ResourceController extends Controller
     {
         $model->update($request->validated());
 
-        $model->attachTags($request->get('add_tags', []));
-
-        $model->detachTags($request->get('remove_tags', []));
-
         return ['message' => 'Resource updated successfully', 'resource' => $model];
     }
 
