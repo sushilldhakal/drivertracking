@@ -19,7 +19,7 @@
         <div
             class="login-container login-username d-flex flex-column align-items-center justify-content-center text-center">
             <div class="mid-container p-5">
-                <form class="form w-100 mb-3">
+                <form class="form w-100 mb-3" action="{{route('admin.login')}}">
                     <img src="{{ asset('img/login-icon.png') }}" alt="Lock icon">
                     <h3>Sign in to continue to the application</h3>
                     <div class="form-group">

@@ -21,7 +21,7 @@
             <div class="timeLog">
                 <h2 id="todaysDate"> </h2>
             </div>
-            <form method="post" action="{{url('/login')}}">
+            <form method="post" action="{{route('punch-in')}}">
                 @csrf
                 <input type='hidden' name='pincode' id='pincode' />
                 <div class="pincode-input-container"></div>
