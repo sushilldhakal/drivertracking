@@ -114,6 +114,10 @@
     display: block !important;
 }
 
+.main-logo {
+    width: 70px;
+}
+
 @media (max-width: 768px) {
     .video-wrapper {
         width: 100%;

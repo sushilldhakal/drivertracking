@@ -73,12 +73,13 @@
 
 .login-logo {
     position: absolute;
-    bottom: 200px;
+    top: 0;
     color: #fff;
     left: calc(50vw - 68.5px);
+    width: 150px;
 }
 
-.video-wrapper {
+#player {
     width: 400px;
 }
 .video-section {
@@ -99,6 +100,10 @@
     display: block !important;
 }
 
+.main-logo {
+    width: 70px;
+}
+
 @media (max-width: 768px) {
     .video-wrapper {
         width: 100%;
@@ -107,4 +112,3 @@
         width: 100%;
     }
 }
-

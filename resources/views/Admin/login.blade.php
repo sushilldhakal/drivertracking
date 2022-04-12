@@ -12,6 +12,7 @@
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link href="{{ asset('css/base.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
             </div>
 
             <div class="login-logo">
-                <img src="{{ asset('img/full_logo_inverse.svg') }}" class="img-fluid">
+                <img src="{{ asset('img/icon.svg') }}" class="img-fluid">
             </div>
         </div>
     </div>

@@ -11,16 +11,19 @@
                         </i>
                     </div>
                     <div>Analytics Dashboard
-                        <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                        <div class="page-title-subheading">This is an example dashboard created using build-in elements
+                            and components.
                         </div>
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
+                    <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom"
+                        class="btn-shadow mr-3 btn btn-dark">
                         <i class="fa fa-star"></i>
                     </button>
                     <div class="d-inline-block dropdown">
-                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
+                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            class="btn-shadow dropdown-toggle btn btn-info">
                             <span class="btn-icon-wrapper pr-2 opacity-7">
                                 <i class="fa fa-business-time fa-w-20"></i>
                             </span>
@@ -132,7 +135,8 @@
                         </div>
                         <ul class="nav">
                             <li class="nav-item"><a href="javascript:void(0);" class="active nav-link">Last</a></li>
-                            <li class="nav-item"><a href="javascript:void(0);" class="nav-link second-tab-toggle">Current</a></li>
+                            <li class="nav-item"><a href="javascript:void(0);"
+                                    class="nav-link second-tab-toggle">Current</a></li>
                         </ul>
                     </div>
                     <div class="card-body">
@@ -145,7 +149,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">Top Authors</h6>
+                                <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">Top
+                                    Authors</h6>
                                 <div class="scroll-area-sm">
                                     <div class="scrollbar-container">
                                         <ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
@@ -153,7 +158,8 @@
                                                 <div class="widget-content p-0">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left mr-3">
-                                                            <img width="42" class="rounded-circle" src="{{ asset('img/avatars/9.jpg') }}" alt="">
+                                                            <img width="42" class="rounded-circle"
+                                                                src="{{ asset('img/avatars/9.jpg') }}" alt="">
                                                         </div>
                                                         <div class="widget-content-left">
                                                             <div class="widget-heading">Ella-Rose Henry</div>
@@ -175,7 +181,8 @@
                                                 <div class="widget-content p-0">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left mr-3">
-                                                            <img width="42" class="rounded-circle" src="{{ asset('img/avatars/5.jpg') }}" alt="">
+                                                            <img width="42" class="rounded-circle"
+                                                                src="{{ asset('img/avatars/5.jpg') }}" alt="">
                                                         </div>
                                                         <div class="widget-content-left">
                                                             <div class="widget-heading">Ruben Tillman</div>
@@ -197,7 +204,8 @@
                                                 <div class="widget-content p-0">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left mr-3">
-                                                            <img width="42" class="rounded-circle" src="{{ asset('img/avatars/4.jpg') }}" alt="">
+                                                            <img width="42" class="rounded-circle"
+                                                                src="{{ asset('img/avatars/4.jpg') }}" alt="">
                                                         </div>
                                                         <div class="widget-content-left">
                                                             <div class="widget-heading">Vinnie Wagstaff</div>
@@ -219,7 +227,8 @@
                                                 <div class="widget-content p-0">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left mr-3">
-                                                            <img width="42" class="rounded-circle" src="{{ asset('img/avatars/3.jpg') }}" alt="">
+                                                            <img width="42" class="rounded-circle"
+                                                                src="{{ asset('img/avatars/3.jpg') }}" alt="">
                                                         </div>
                                                         <div class="widget-content-left">
                                                             <div class="widget-heading">Ella-Rose Henry</div>
@@ -241,7 +250,8 @@
                                                 <div class="widget-content p-0">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left mr-3">
-                                                            <img width="42" class="rounded-circle" src="{{ asset('img/avatars/2.jpg') }}" alt="">
+                                                            <img width="42" class="rounded-circle"
+                                                                src="{{ asset('img/avatars/2.jpg') }}" alt="">
                                                         </div>
                                                         <div class="widget-content-left">
                                                             <div class="widget-heading">Ruben Tillman</div>
@@ -276,8 +286,12 @@
                         </div>
                         <div class="btn-actions-pane-right">
                             <div class="nav">
-                                <a href="javascript:void(0);" class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate">Tab 1</a>
-                                <a href="javascript:void(0);" class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt">Tab 2</a>
+                                <a href="javascript:void(0);"
+                                    class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate">Tab
+                                    1</a>
+                                <a href="javascript:void(0);"
+                                    class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt">Tab
+                                    2</a>
                             </div>
                         </div>
                     </div>
@@ -310,7 +324,9 @@
                                                 </div>
                                                 <div class="widget-progress-wrapper mt-1">
                                                     <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="width: 63%;"></div>
+                                                        <div class="progress-bar bg-danger" role="progressbar"
+                                                            aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"
+                                                            style="width: 63%;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -329,7 +345,9 @@
                                                 </div>
                                                 <div class="widget-progress-wrapper mt-1">
                                                     <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="width: 32%;"></div>
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"
+                                                            style="width: 32%;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -348,7 +366,9 @@
                                                 </div>
                                                 <div class="widget-progress-wrapper mt-1">
                                                     <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"
+                                                            style="width: 71%;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -367,7 +387,9 @@
                                                 </div>
                                                 <div class="widget-progress-wrapper mt-1">
                                                     <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100" style="width: 41%;"></div>
+                                                        <div class="progress-bar bg-warning" role="progressbar"
+                                                            aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"
+                                                            style="width: 41%;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -440,7 +462,8 @@
                         </div>
                         <div class="widget-progress-wrapper">
                             <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100" style="width: 54%;"></div>
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="54"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 54%;"></div>
                             </div>
                             <div class="progress-sub-label">
                                 <div class="sub-label-left">Expenses</div>
@@ -481,7 +504,8 @@
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
-                                                        <img width="40" class="rounded-circle" src="{{ asset('img/avatars/4.jpg') }}" alt="">
+                                                        <img width="40" class="rounded-circle"
+                                                            src="{{ asset('img/avatars/4.jpg') }}" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="widget-content-left flex2">
@@ -496,7 +520,8 @@
                                         <div class="badge badge-warning">Pending</div>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Details</button>
+                                        <button type="button" id="PopoverCustomT-1"
+                                            class="btn btn-primary btn-sm">Details</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -506,12 +531,14 @@
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
-                                                        <img width="40" class="rounded-circle" src="{{ asset('img/avatars/3.jpg') }}" alt="">
+                                                        <img width="40" class="rounded-circle"
+                                                            src="{{ asset('img/avatars/3.jpg') }}" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="widget-content-left flex2">
                                                     <div class="widget-heading">Ruben Tillman</div>
-                                                    <div class="widget-subheading opacity-7">Etiam sit amet orci eget</div>
+                                                    <div class="widget-subheading opacity-7">Etiam sit amet orci eget
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -521,7 +548,8 @@
                                         <div class="badge badge-success">Completed</div>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm">Details</button>
+                                        <button type="button" id="PopoverCustomT-2"
+                                            class="btn btn-primary btn-sm">Details</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -531,7 +559,8 @@
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
-                                                        <img width="40" class="rounded-circle" src="{{ asset('img/avatars/2.jpg') }}" alt="">
+                                                        <img width="40" class="rounded-circle"
+                                                            src="{{ asset('img/avatars/2.jpg') }}" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="widget-content-left flex2">
@@ -546,7 +575,8 @@
                                         <div class="badge badge-danger">In Progress</div>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" id="PopoverCustomT-3" class="btn btn-primary btn-sm">Details</button>
+                                        <button type="button" id="PopoverCustomT-3"
+                                            class="btn btn-primary btn-sm">Details</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -556,7 +586,8 @@
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
-                                                        <img width="40" class="rounded-circle" src="{{ asset('img/avatars/1.jpg') }}" alt="">
+                                                        <img width="40" class="rounded-circle"
+                                                            src="{{ asset('img/avatars/1.jpg') }}" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="widget-content-left flex2">
@@ -571,14 +602,16 @@
                                         <div class="badge badge-info">On Hold</div>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" id="PopoverCustomT-4" class="btn btn-primary btn-sm">Details</button>
+                                        <button type="button" id="PopoverCustomT-4"
+                                            class="btn btn-primary btn-sm">Details</button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="d-block text-center card-footer">
-                        <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                        <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i
+                                class="pe-7s-trash btn-icon-wrapper"> </i></button>
                         <button class="btn-wide btn btn-success">Save</button>
                     </div>
                 </div>
@@ -595,7 +628,8 @@
                                 </div>
                                 <div class="widget-content-right w-100">
                                     <div class="progress-bar-xs progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
+                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="71"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -616,7 +650,8 @@
                                 </div>
                                 <div class="widget-content-right w-100">
                                     <div class="progress-bar-xs progress">
-                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100" style="width: 54%;"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="54"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 54%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -637,7 +672,8 @@
                                 </div>
                                 <div class="widget-content-right w-100">
                                     <div class="progress-bar-xs progress">
-                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="width: 32%;"></div>
+                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="32"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 32%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -658,7 +694,8 @@
                                 </div>
                                 <div class="widget-content-right w-100">
                                     <div class="progress-bar-xs progress">
-                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="89"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
                                     </div>
                                 </div>
                             </div>

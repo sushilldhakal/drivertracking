@@ -25,7 +25,11 @@ Route::middleware('auth')->group(function(){
 
 Route::post('login','AuthController@login');
 
-Route::view('/','welcome');
+Route::view('/','Pin.index');
 Route::view('/dashboard','Dashboard.index');
 Route::view('/login','Pin.index')->name('login');
 Route::view('/admin/login','Admin.login')->name('admin.login');
+Route::view('/form','Form.index');
+Route::view('/driver','Driver.index');
+Route::view('/location','Location.index');
+Route::view('/depot','Depot.index');
