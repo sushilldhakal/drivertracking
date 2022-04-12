@@ -19,11 +19,22 @@ Route::middleware('auth')->group(function(){
         Route::resource('resource','ResourceController');
         Route::view('punch-in','Form.index')->name('main');
     });
+    Route::view('/','welcome');
     Route::get('break','AuthController@break');
     Route::view('/is-in-break','break');
+
 });
 
-Route::post('login','AuthController@login');
+Route::prefix('admin')->group(function(){
+    Route::view('login','Admin.login')->name('admin.login');
+    Route::post('login','AuthController@adminLogin');
+
+    Route::middleware('admin')->group(function(){
+
+    });
+});
+
+Route::post('punch-in','AuthController@punchIn')->name('punch-in');
 
 Route::view('/','Pin.index');
 Route::view('/dashboard','Dashboard.index');
@@ -33,3 +44,5 @@ Route::view('/form','Form.index');
 Route::view('/driver','Driver.index');
 Route::view('/location','Location.index');
 Route::view('/depot','Depot.index');
+Route::view('/search','Search.index');
+Route::view('/punch-in','Pin.index')->name('punch-in');

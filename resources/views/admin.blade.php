@@ -11,10 +11,11 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link href="{{ asset('css/base.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="css.min/datatable.bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -107,7 +108,6 @@
                 <div class="scrollbar-sidebar">
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
-                            <li class="app-sidebar__heading">Dashboards</li>
                             <li>
                                 <a href="/dashboard" class="mm-active">
                                     <i class="metismenu-icon pe-7s-graph1"></i>
@@ -115,7 +115,6 @@
                                 </a>
                             </li>
 
-                            <li class="app-sidebar__heading">Drivers</li>
                             <li>
                                 <a href="/driver">
                                     <i class="metismenu-icon pe-7s-helm"></i>
@@ -123,7 +122,6 @@
                                 </a>
                             </li>
 
-                            <li class="app-sidebar__heading">Location</li>
                             <li>
                                 <a href="/location">
                                     <i class="metismenu-icon pe-7s-map-marker"></i>
@@ -131,11 +129,16 @@
                                 </a>
                             </li>
 
-                            <li class="app-sidebar__heading">Depot</li>
                             <li>
                                 <a href="/depot">
                                     <i class="metismenu-icon pe-7s-map-marker"></i>
                                     Depot Details
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/search">
+                                    <i class="metismenu-icon pe-7s-search"></i>
+                                    Search
                                 </a>
                             </li>
                         </ul>
@@ -145,8 +148,17 @@
 
             @yield('content')
         </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-        <script type="text/javascript" src="js.min/datatable.bundle.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.tabledit.min.js') }}"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
+        </script>
+
+
+
+
 </body>
 
 </html>

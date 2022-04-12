@@ -13,7 +13,7 @@ class AuthController extends Controller
      * Perform login of the user
      */
 
-    public function login(UserLogin $request)
+    public function punchIn(UserLogin $request)
     {
         User::wherePin($request->get('pincode'))->first()->login();
 
