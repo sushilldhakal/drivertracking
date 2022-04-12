@@ -150,7 +150,7 @@
         </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.tabledit.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.tabledit.js') }}"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">

@@ -35,73 +35,168 @@
                             data-show-pagination-switch="false">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Pin</th>
-                                    <th>Depot</th>
-                                    <th>Comments</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
+                                    <th size="5">Date</th>
+                                    <th> Driver Name</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                    <th>Time Taken</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th> Load/Unload Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Sushil Dhakal</td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td>14 Jan 2022</td>
+                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td>8:30am</td>
+                                    <td>Depart</td>
+                                    <td>00</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>1hr</td>
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>Sushil Dhakal</td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td>14 Jan 2022</td>
+                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td>9:30am</td>
+                                    <td>Arrived</td>
+                                    <td>1hr</td>
+                                    <td><a href="gps-location-position">New Aim</a></td>
+                                    <td><a href="gps-location-position">Dandenong</a></td>
+                                    <td>1hr</td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td>Sushil Dhakal</td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td>14 Jan 2022</td>
+                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td>11:30am</td>
+                                    <td>Arrived</td>
+                                    <td>1.5hr</td>
+                                    <td><a href="gps-location-position">Dandenong</a></td>
+                                    <td><a href="">Port Melbourne</a></td>
+                                    <td>1hr</td>
                                 </tr>
                                 <tr>
-                                    <td>4</td>
-                                    <td>Sushil Dhakal</td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td>14 Jan 2022</td>
+                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td>9:30am</td>
+                                    <td>Arrived</td>
+                                    <td>1hr</td>
+                                    <td><a href="gps-location-position">New Aim</a></td>
+                                    <td><a href="gps-location-position">Dandenong</a></td>
+                                    <td>1hr</td>
                                 </tr>
                                 <tr>
-                                    <td>5</td>
-                                    <td>Sushil Dhakal</td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td>14 Jan 2022</td>
+                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td>9:30am</td>
+                                    <td>Arrived</td>
+                                    <td>1hr</td>
+                                    <td><a href="gps-location-position">New Aim</a></td>
+                                    <td><a href="gps-location-position">Dandenong</a></td>
+                                    <td>1hr</td>
                                 </tr>
                                 <tr>
-                                    <td>6</td>
-                                    <td>Sushil Dhakal</td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td>14 Jan 2022</td>
+                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td>9:30am</td>
+                                    <td>Arrived</td>
+                                    <td>1hr</td>
+                                    <td><a href="gps-location-position">New Aim</a></td>
+                                    <td><a href="gps-location-position">Dandenong</a></td>
+                                    <td>1hr</td>
                                 </tr>
 
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <h5 class="card-title">Average Time to reach from one location to another</h5>
+                        <div class="card-content">
+                            <table id="timeTable" class="table" data-id-field="code" data-sort-name="value1"
+                                data-sort-order="desc" data-show-chart="false" data-pagination="false"
+                                data-show-pagination-switch="false">
+                                <thead>
+                                    <tr>
+                                        <th>From</th>
+                                        <th> To</th>
+                                        <th>Time Taken</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Port Melbourne</td>
+                                        <td> Dandenong</td>
+                                        <td>2 hrs</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Port Melbourne</td>
+                                        <td> New Aim</td>
+                                        <td>2 hrs</td>
+                                    </tr>
+                                    <tr>
+                                        <td>New Aim</td>
+                                        <td> Dandenong</td>
+                                        <td>2 hrs</td>
+                                    </tr>
+                                    <tr>
+                                        <td> New Aim</td>
+                                        <td>Port Melbourne</td>
+
+                                        <td>2 hrs</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <h5 class="card-title">Load Unload average time</h5>
+                        <div class="card-content">
+                            <table id="ULTable" class="table" data-id-field="code" data-sort-name="value1"
+                                data-sort-order="desc" data-show-chart="false" data-pagination="false"
+                                data-show-pagination-switch="false">
+                                <thead>
+                                    <tr>
+                                        <th>Location</th>
+                                        <th> Average Time </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Port Melbourne</td>
+                                        <td>2 hrs</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> New Aim</td>
+                                        <td>2 hrs</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Dandenong</td>
+                                        <td>2 hrs</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,22 +240,20 @@ $(document).ready(function() {
             "searchable": true
         }]
     });
-    $('#driverTable').Tabledit({
-        url: 'http://localhost:8080/driver',
-        eventType: 'dblclick',
-        columns: {
-            identifier: [0, 'id'],
-            editable: [
-                [1, 'name'],
-                [3, 'depot', '{"1": "Port Melb", "2": "Dandenong", "3": "TUL"}'],
-                [4, 'comment'],
-                [5, 'Phone number'],
-                [6, 'Email']
-            ],
-        }
-    });
-
-
+    // $('#driverTable').Tabledit({
+    //     url: 'http://localhost:8080/driver',
+    //     eventType: 'dblclick',
+    //     columns: {
+    //         identifier: [0, 'id'],
+    //         editable: [
+    //             [1, 'name'],
+    //             [3, 'depot', '{"1": "Port Melb", "2": "Dandenong", "3": "TUL"}'],
+    //             [4, 'comment'],
+    //             [5, 'Phone number'],
+    //             [6, 'Email']
+    //         ],
+    //     }
+    // });
     $('input[name="dates"]').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true,

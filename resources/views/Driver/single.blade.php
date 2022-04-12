@@ -12,7 +12,7 @@
                         </i>
                     </div>
                     <div>
-                        Drivers
+                        single
                         <div class="page-title-subheading">
                             All drivers associated with 4th Dimension
                         </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="page-title-actions">
                     <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal"
-                        data-target="#addDrivers">Add Drivers</button>
+                        data-target="#editDrivers">Edit Driver Detail</button>
                 </div>
             </div>
         </div>
@@ -28,80 +28,94 @@
         <div class="">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Drivers</h5>
+                    <h5 class="card-title">Driver Name - comment</h5>
                     <div class="card-content">
 
 
 
 
-                        <table id="driverTable" class="table" data-id-field="code" data-sort-name="value1"
+                        <table id="singledriverTable" class="table" data-id-field="code" data-sort-name="value1"
                             data-sort-order="desc" data-show-chart="false" data-pagination="false"
                             data-show-pagination-switch="false">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Pin</th>
-                                    <th>Depot</th>
-                                    <th>Comments</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
+                                    <th>Date</th>
+                                    <th>Arrived</th>
+                                    <th>Depart</th>
+                                    <th>Location</th>
+                                    <th>Break Time</th>
+                                    <th>Load Type</th>
+                                    <th>Unload type</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td></td>
                                     <td>1</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
+                                    <td>10 Jan 2022</td>
+                                    <td>8:00am</td>
+                                    <td>8:30am</td>
                                     <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td></td>
+                                    <td>34 cage</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>2</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
+                                    <td>10 Jan 2022</td>
+                                    <td>8:00am</td>
+                                    <td>8:30am</td>
                                     <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td></td>
+                                    <td>34 cage</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>3</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
+                                    <td>10 Jan 2022</td>
+                                    <td>8:00am</td>
+                                    <td>8:30am</td>
                                     <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td></td>
+                                    <td>34 cage</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>4</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
+                                    <td>10 Jan 2022</td>
+                                    <td>8:00am</td>
+                                    <td>8:30am</td>
                                     <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td></td>
+                                    <td>34 cage</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>5</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
+                                    <td>10 Jan 2022</td>
+                                    <td>8:00am</td>
+                                    <td>8:30am</td>
                                     <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td></td>
+                                    <td>34 cage</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>6</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
+                                    <td>10 Jan 2022</td>
+                                    <td>8:00am</td>
+                                    <td>8:30am</td>
                                     <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td></td>
+                                    <td>34 cage</td>
+                                    <td></td>
                                 </tr>
 
                             </tbody>
@@ -135,13 +149,13 @@
 </div>
 </div>
 
-<div class="modal fade" id="addDrivers" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+<div class="modal fade" id="editDrivers" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-modal="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <form class="form w-100">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Drivers</h5>
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Edit Drivers</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -225,28 +239,23 @@
 <script>
 $(document).ready(function() {
 
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#image-preview').attr('src', e.target.result);
-                $('#image-preview').hide();
-                $('#image-preview').fadeIn(650);
-            }
-            reader.readAsDataURL(input.files[0]);
+
+    $('#singledriverTable tbody').on('click', 'td:first-child', function() {
+        var tr = $(this).closest('tr');
+        var row = table.row(tr);
+
+        if (row.child.isShown()) {
+            // This row is already open - close it.
+            row.child.hide();
+            tr.removeClass('shown');
+        } else {
+            // Open row.
+            row.child('foo').show();
+            tr.addClass('shown');
         }
-    }
-
-    $("#file-input").change(function() {
-        readURL(this);
     });
 
-    $("#pinGenerate").click(function() {
-        const newNumber = "" + Math.floor(1000 + Math.random() * 9000);
-        $("#formGridPin").val(newNumber.toString());
-    });
-
-    var table = $('#driverTable').DataTable({
+    var table = $('#singledriverTable').DataTable({
         select: false,
         "columnDefs": [{
             className: "Name",
@@ -255,32 +264,33 @@ $(document).ready(function() {
             "searchable": true
         }]
     });
-    $('#driverTable').Tabledit({
-        url: 'http://localhost:8080/driver',
+    $('#singledriverTable').Tabledit({
+        url: 'http://localhost:8080/driver/single',
         eventType: 'dblclick',
-        editButton: false,
         columns: {
             identifier: [0, 'id'],
             editable: [
-                // [1, 'name'],
-                // [3, 'depot', '{"1": "Port Melb", "2": "Dandenong", "3": "TUL"}'],
-                // [4, 'comment'],
-                // [5, 'Phone number'],
-                // [6, 'Email']
+                [2, 'Date'],
+                [3, 'Arrived}'],
+                [4, 'Depart'],
+                [5, 'Location'],
+                [6, 'Break Time'],
+                [7, 'Load Type'],
+                [8, 'Unload Type']
             ],
         }
     });
 
 
-    $('input[name="dates"]').daterangepicker({
-        singleDatePicker: true,
-        showDropdowns: true,
-        minYear: 1901,
-        maxYear: parseInt(moment().format('YYYY'), 10)
-    }, function(start, end, label) {
-        var years = moment().diff(start, 'years');
-        alert("You are " + years + " years old!");
-    });
+    // $('input[name="dates"]').daterangepicker({
+    //     singleDatePicker: true,
+    //     showDropdowns: true,
+    //     minYear: 1901,
+    //     maxYear: parseInt(moment().format('YYYY'), 10)
+    // }, function(start, end, label) {
+    //     var years = moment().diff(start, 'years');
+    //     alert("You are " + years + " years old!");
+    // });
 
 })
 </script>

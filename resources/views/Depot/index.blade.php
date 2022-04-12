@@ -38,6 +38,8 @@
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Location</th>
+                                    <th>Cage Number</th>
+                                    <th>Pallet Number</th>
 
                                 </tr>
                             </thead>
@@ -46,32 +48,44 @@
                                     <td>1</td>
                                     <td>Port Melb</td>
                                     <td>63 salmon street</td>
+                                    <td>214</td>
+                                    <td>150</td>
 
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>Port Melb</td>
                                     <td>63 salmon street</td>
+                                    <td>214</td>
+                                    <td>150</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>Port Melb</td>
                                     <td>63 salmon street</td>
+                                    <td>214</td>
+                                    <td>150</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td>Port Melb</td>
                                     <td>63 salmon street</td>
+                                    <td>214</td>
+                                    <td>150</td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
                                     <td>Port Melb</td>
                                     <td>63 salmon street</td>
+                                    <td>214</td>
+                                    <td>150</td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
                                     <td>Port Melb</td>
                                     <td>63 salmon street</td>
+                                    <td>214</td>
+                                    <td>150</td>
                                 </tr>
 
                             </tbody>
@@ -126,6 +140,15 @@
                         <label>Location</label>
                         <input type="text" class="form-control" placeholder="Location" required="">
                     </div>
+
+                    <div class="form-group">
+                        <label>Number of Cage</label>
+                        <input type="number" class="form-control" placeholder="Cage number" required="">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of pallet</label>
+                        <input type="number" class="form-control" placeholder="pallet number" required="">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
@@ -139,6 +162,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
+
+
+
     var table = $('#depotTable').DataTable({
         select: false,
         "columnDefs": [{
@@ -149,15 +175,12 @@ $(document).ready(function() {
         }]
     });
     $('#depotTable').Tabledit({
-        url: 'http://localhost:8080/driver',
+        url: 'http://localhost:8080/depot',
         columns: {
             identifier: [0, 'id'],
             editable: [
                 [1, 'name'],
-                [3, 'depot'],
-                [4, 'comment'],
-                [5, 'Phone number'],
-                [6, 'Email']
+                [2, 'location']
             ],
         }
     });

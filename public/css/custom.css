@@ -310,6 +310,39 @@ label {
 .vertical-nav-menu li {
     padding: 5px 10px;
 }
+#pinGenerate {
+    position: absolute;
+    top: 30px;
+    right: 18px;
+}
+.relative-class{
+    position: relative;
+}
+
+#img_contain{
+    border:1px solid grey;
+    margin-top:10px;
+    width:100px;
+  }
+  #file-input{
+    margin-left:7px;
+    padding:10px;
+  }
+  #image-preview{
+    width:100px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    padding:5px;
+  }
+  #singledriverTable .odd td:first-child, #singledriverTable .even td:first-child {
+    background: url('https://datatables.net/examples/resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+  }
+  
+  #singledriverTable tr.even.shown td:first-child,#singledriverTable tr.odd.shown td:first-child {
+    background: url('https://datatables.net/examples/resources/details_close.png') no-repeat center center;
+  }
 
 @media screen and (max-width: 991.98px) {
     .form-control {

@@ -37,6 +37,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
+                                    <th>Address</th>
                                     <th>Truck Type</th>
                                     <th>Supplier</th>
                                 </tr>
@@ -45,6 +46,7 @@
                                 <tr>
                                     <td>1</td>
                                     <td>New Aim</td>
+                                    <td>10 jason street, oakleigh south</td>
                                     <td>Double B</td>
                                     <td>Agencye</td>
 
@@ -52,30 +54,35 @@
                                 <tr>
                                     <td>2</td>
                                     <td>New Aim</td>
+                                    <td>10 jason street, oakleigh south</td>
                                     <td>Double B</td>
                                     <td>Agencye</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>New Aim</td>
+                                    <td>10 jason street, oakleigh south</td>
                                     <td>Double B</td>
                                     <td>Agencye</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td>New Aim</td>
+                                    <td>10 jason street, oakleigh south</td>
                                     <td>Double B</td>
                                     <td>Agencye</td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
                                     <td>New Aim</td>
+                                    <td>10 jason street, oakleigh south</td>
                                     <td>Double B</td>
                                     <td>Agencye</td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
                                     <td>New Aim</td>
+                                    <td>10 jason street, oakleigh south</td>
                                     <td>Double B</td>
                                     <td>Agencye</td>
                                 </tr>
@@ -126,6 +133,11 @@
                     <div class="form-group">
                         <label>Location Name</label>
                         <input type="text" class="form-control" placeholder="Location" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location Address</label>
+                        <input type="text" class="form-control" placeholder="Location Address" required="">
                     </div>
 
                     <div class="form-group">
