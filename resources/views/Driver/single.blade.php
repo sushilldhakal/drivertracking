@@ -42,83 +42,12 @@
                                     <th></th>
                                     <th>Id</th>
                                     <th>Date</th>
-                                    <th>Arrived</th>
-                                    <th>Depart</th>
-                                    <th>Location</th>
-                                    <th>Break Time</th>
-                                    <th>Load Type</th>
-                                    <th>Unload type</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Break</th>
+                                    <th>Total Hours</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>1</td>
-                                    <td>10 Jan 2022</td>
-                                    <td>8:00am</td>
-                                    <td>8:30am</td>
-                                    <td>Port Melbourne</td>
-                                    <td></td>
-                                    <td>34 cage</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>2</td>
-                                    <td>10 Jan 2022</td>
-                                    <td>8:00am</td>
-                                    <td>8:30am</td>
-                                    <td>Port Melbourne</td>
-                                    <td></td>
-                                    <td>34 cage</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>3</td>
-                                    <td>10 Jan 2022</td>
-                                    <td>8:00am</td>
-                                    <td>8:30am</td>
-                                    <td>Port Melbourne</td>
-                                    <td></td>
-                                    <td>34 cage</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>4</td>
-                                    <td>10 Jan 2022</td>
-                                    <td>8:00am</td>
-                                    <td>8:30am</td>
-                                    <td>Port Melbourne</td>
-                                    <td></td>
-                                    <td>34 cage</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>5</td>
-                                    <td>10 Jan 2022</td>
-                                    <td>8:00am</td>
-                                    <td>8:30am</td>
-                                    <td>Port Melbourne</td>
-                                    <td></td>
-                                    <td>34 cage</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>6</td>
-                                    <td>10 Jan 2022</td>
-                                    <td>8:00am</td>
-                                    <td>8:30am</td>
-                                    <td>Port Melbourne</td>
-                                    <td></td>
-                                    <td>34 cage</td>
-                                    <td></td>
-                                </tr>
-
-                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -169,8 +98,6 @@
 
                         <div class="col-md-6 relative-class">
                             <label>Pin Number</label>
-                            <!-- <input type="number" class="form-control" placeholder="Generate Pin" required=""> -->
-
                             <button id="pinGenerate"
                                 class="btn btn-hover btn-default btn-rounded btn-small btn-custom btn-warning">
                                 Generate Pin
@@ -238,6 +165,26 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#image-preview').attr('src', e.target.result);
+                $('#image-preview').hide();
+                $('#image-preview').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#file-input").change(function() {
+        readURL(this);
+    });
+
+    $("#pinGenerate").click(function() {
+        const newNumber = "" + Math.floor(1000 + Math.random() * 9000);
+        $("#formGridPin").val(newNumber.toString());
+    });
 
 
     $('#singledriverTable tbody').on('click', 'td:first-child', function() {
@@ -255,42 +202,158 @@ $(document).ready(function() {
         }
     });
 
-    var table = $('#singledriverTable').DataTable({
-        select: false,
-        "columnDefs": [{
-            className: "Name",
-            "targets": [0],
-            "visible": true,
-            "searchable": true
-        }]
+    var data = [{
+            id: "1",
+            date: "27 Feb 2022",
+            startTime: "8:00am",
+            endTime: "5:00pm",
+            break: "1hr",
+            totalHour: "9hr",
+            ext: [{
+                location: " New Aim",
+                arrived: "8:00am",
+                Depart: "10:00am",
+                loadunloadTime: "2hr",
+                cageload: "0",
+                cageUnload: "50",
+                palateLoad: "0",
+                palateUnload: "0"
+            }]
+        },
+        {
+            id: "2",
+            date: "27 Feb 2022",
+            startTime: "8:00am",
+            endTime: "5:00pm",
+            break: "1hr",
+            totalHour: "9hr",
+            ext: [{
+                location: " New Aim",
+                arrived: "8:00am",
+                Depart: "10:00am",
+                loadunloadTime: "2hr",
+                cageload: "0",
+                cageUnload: "50",
+                palateLoad: "0",
+                palateUnload: "0"
+            }]
+        },
+        {
+            id: "3",
+            date: "27 Feb 2022",
+            startTime: "8:00am",
+            endTime: "5:00pm",
+            break: "1hr",
+            totalHour: "9hr",
+            ext: [{
+                location: " New Aim",
+                arrived: "8:00am",
+                Depart: "10:00am",
+                loadunloadTime: "2hr",
+                cageload: "0",
+                cageUnload: "50",
+                palateLoad: "0",
+                palateUnload: "0"
+            }]
+        },
+
+    ]
+
+    function format(d) {
+        return (
+            '<table class="table mb-0 w-100">' +
+            '<tr class="table-primary">' +
+            "<td>Location:</td>" +
+            "<td>" +
+
+            d.ext.map(val => ({
+                Location: val.location
+            })) +
+            "</td>" + "<td>Arrived:</td>" + console.log(d.ext) +
+            "<td>Depart:</td>" +
+            "<td>Load/Unload Time:</td>" +
+            "<td>Cage Load / unload:</td>" +
+            "<td>Pallet Load / Unload:</td>" +
+            "</tr>" +
+            "</table>"
+        );
+    }
+
+    var table = $("#singledriverTable").DataTable({
+        data: data,
+        columns: [{
+                className: "details-control",
+                orderable: false,
+                data: null,
+                defaultContent: '<i class="material-icons"></i>'
+            },
+            {
+                data: "id"
+            },
+            {
+                data: "date"
+            },
+            {
+                data: "startTime"
+            },
+            {
+                data: "endTime"
+            },
+            {
+                data: "break"
+            },
+            {
+                data: "totalHour"
+            }, {
+                data: "ext",
+                visible: false
+            }
+        ],
+        order: [
+            [1, "asc"]
+        ]
     });
+
+    $("#singledriverTable tbody").on("click", "td.details-control", function() {
+        var tr = $(this).closest("tr");
+        var row = table.row(tr);
+
+        if (row.child.isShown()) {
+            row.child.hide();
+            tr.removeClass("shown");
+        } else {
+            row.child(format(row.data()), "p-0").show();
+            tr.addClass("shown");
+        }
+    });
+
+
+
     $('#singledriverTable').Tabledit({
         url: 'http://localhost:8080/driver/single',
         eventType: 'dblclick',
         columns: {
             identifier: [0, 'id'],
             editable: [
-                [2, 'Date'],
-                [3, 'Arrived}'],
-                [4, 'Depart'],
-                [5, 'Location'],
-                [6, 'Break Time'],
-                [7, 'Load Type'],
-                [8, 'Unload Type']
+                [1, 'Date'],
+                [2, 'Start Time}'],
+                [3, 'End Time'],
+                [4, 'Break'],
+                [5, 'Total Hours']
             ],
         }
     });
 
 
-    // $('input[name="dates"]').daterangepicker({
-    //     singleDatePicker: true,
-    //     showDropdowns: true,
-    //     minYear: 1901,
-    //     maxYear: parseInt(moment().format('YYYY'), 10)
-    // }, function(start, end, label) {
-    //     var years = moment().diff(start, 'years');
-    //     alert("You are " + years + " years old!");
-    // });
+    $('input[name="dates"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        minYear: 1901,
+        maxYear: parseInt(moment().format('YYYY'), 10)
+    }, function(start, end, label) {
+        var years = moment().diff(start, 'years');
+        alert("You are " + years + " years old!");
+    });
 
 })
 </script>

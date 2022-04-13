@@ -109,7 +109,8 @@
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
                             <li>
-                                <a href="/dashboard" class="mm-active">
+                                <!-- class="mm-active" -->
+                                <a href="/dashboard">
                                     <i class="metismenu-icon pe-7s-graph1"></i>
                                     Dashboard
                                 </a>
@@ -151,7 +152,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/jquery.tabledit.js') }}"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
         </script>
