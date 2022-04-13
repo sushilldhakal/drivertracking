@@ -40,7 +40,7 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Id</th>
+                                    <!-- <th>Id</th> -->
                                     <th>Date</th>
                                     <th>Start Time</th>
                                     <th>End Time</th>
@@ -210,15 +210,36 @@ $(document).ready(function() {
             break: "1hr",
             totalHour: "9hr",
             ext: [{
-                location: " New Aim",
-                arrived: "8:00am",
-                Depart: "10:00am",
-                loadunloadTime: "2hr",
-                cageload: "0",
-                cageUnload: "50",
-                palateLoad: "0",
-                palateUnload: "0"
-            }]
+                    location: " New Aim",
+                    arrived: "8:00am",
+                    Depart: "10:00am",
+                    loadunloadTime: "2hr",
+                    cageload: "0",
+                    cageUnload: "50",
+                    palateLoad: "0",
+                    palateUnload: "0"
+                },
+                {
+                    location: " New Aim",
+                    arrived: "8:00am",
+                    Depart: "10:00am",
+                    loadunloadTime: "2hr",
+                    cageload: "0",
+                    cageUnload: "50",
+                    palateLoad: "0",
+                    palateUnload: "0"
+                },
+                {
+                    location: " New Aim",
+                    arrived: "8:00am",
+                    Depart: "10:00am",
+                    loadunloadTime: "2hr",
+                    cageload: "0",
+                    cageUnload: "50",
+                    palateLoad: "0",
+                    palateUnload: "0"
+                }
+            ]
         },
         {
             id: "2",
@@ -262,18 +283,40 @@ $(document).ready(function() {
     function format(d) {
         return (
             '<table class="table mb-0 w-100">' +
+            // '<thead><th>Location</th><th>Arrived</th><th>Depart</th><th>Load / Unload Time</th><th>Load / Unload Cage</th><th>Load / Unload Pallet</th></thead>'
             '<tr class="table-primary">' +
-            "<td>Location:</td>" +
-            "<td>" +
+            "<td>Location: New Aim</td>" +
+            // "<td>"
+            // +
 
-            d.ext.map(val => ({
-                Location: val.location
-            })) +
-            "</td>" + "<td>Arrived:</td>" + console.log(d.ext) +
-            "<td>Depart:</td>" +
-            "<td>Load/Unload Time:</td>" +
-            "<td>Cage Load / unload:</td>" +
-            "<td>Pallet Load / Unload:</td>" +
+            // d.ext.map(val => ({
+            //     Location: val.location
+            // })) 
+            //+
+            // "</td>" +
+            "<td>Arrived: 10am</td>" +
+            "<td>Depart:12pm</td>" +
+            "<td>Load/Unload Time: 2hr</td>" +
+            "<td>Cage Load / unload: 20 / 0</td>" +
+            "<td>Pallet Load / Unload: 0 / 0</td>" +
+            "</tr>" +
+            '<tr class="table-primary">' +
+            "<td>Location: New Aim</td>" +
+            "<td>" +
+            "</td>" + "<td>Arrived: 10am</td>" +
+            "<td>Depart:12pm</td>" +
+            "<td>Load/Unload Time: 2hr</td>" +
+            "<td>Cage Load / unload: 20 / 0</td>" +
+            "<td>Pallet Load / Unload: 0 / 0</td>" +
+            "</tr>" +
+            '<tr class="table-primary">' +
+            "<td>Location: New Aim</td>" +
+            "<td>" +
+            "</td>" + "<td>Arrived: 10am</td>" +
+            "<td>Depart:12pm</td>" +
+            "<td>Load/Unload Time: 2hr</td>" +
+            "<td>Cage Load / unload: 20 / 0</td>" +
+            "<td>Pallet Load / Unload: 0 / 0</td>" +
             "</tr>" +
             "</table>"
         );
@@ -287,9 +330,9 @@ $(document).ready(function() {
                 data: null,
                 defaultContent: '<i class="material-icons"></i>'
             },
-            {
-                data: "id"
-            },
+            // {
+            //     data: "id"
+            // },
             {
                 data: "date"
             },
