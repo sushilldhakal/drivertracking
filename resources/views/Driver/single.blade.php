@@ -243,7 +243,7 @@ $(document).ready(function() {
         },
         {
             id: "2",
-            date: "27 Feb 2022",
+            date: "26 Feb 2022",
             startTime: "8:00am",
             endTime: "5:00pm",
             break: "1hr",
@@ -261,7 +261,7 @@ $(document).ready(function() {
         },
         {
             id: "3",
-            date: "27 Feb 2022",
+            date: "25 Feb 2022",
             startTime: "8:00am",
             endTime: "5:00pm",
             break: "1hr",
@@ -282,41 +282,37 @@ $(document).ready(function() {
 
     function format(d) {
         return (
-            '<table class="table mb-0 w-100">' +
-            // '<thead><th>Location</th><th>Arrived</th><th>Depart</th><th>Load / Unload Time</th><th>Load / Unload Cage</th><th>Load / Unload Pallet</th></thead>'
+            '<table id="innerTable" class="table mb-0 w-100">' +
+            '<thead><th>Location</th>' +
+            '<th>Arrived</th>' +
+            '<th>Depart</th>' +
+            '<th>Load / Unload Time</th>' +
+            '<th>Load / Unload Cage</th>' +
+            '<th>Load / Unload Pallet</th>' +
+            '</thead>' +
             '<tr class="table-primary">' +
-            "<td>Location: New Aim</td>" +
-            // "<td>"
-            // +
-
-            // d.ext.map(val => ({
-            //     Location: val.location
-            // })) 
-            //+
-            // "</td>" +
-            "<td>Arrived: 10am</td>" +
-            "<td>Depart:12pm</td>" +
-            "<td>Load/Unload Time: 2hr</td>" +
-            "<td>Cage Load / unload: 20 / 0</td>" +
-            "<td>Pallet Load / Unload: 0 / 0</td>" +
+            "<td>New Aim</td>" +
+            "<td>10am</td>" +
+            "<td>12pm</td>" +
+            "<td>2hr</td>" +
+            "<td> 20 / 0</td>" +
+            "<td> 0 / 0</td>" +
             "</tr>" +
             '<tr class="table-primary">' +
-            "<td>Location: New Aim</td>" +
-            "<td>" +
-            "</td>" + "<td>Arrived: 10am</td>" +
-            "<td>Depart:12pm</td>" +
-            "<td>Load/Unload Time: 2hr</td>" +
-            "<td>Cage Load / unload: 20 / 0</td>" +
-            "<td>Pallet Load / Unload: 0 / 0</td>" +
+            "<td>New Aim</td>" +
+            "<td>10am</td>" +
+            "<td>12pm</td>" +
+            "<td>2hr</td>" +
+            "<td> 20 / 0</td>" +
+            "<td> 0 / 0</td>" +
             "</tr>" +
             '<tr class="table-primary">' +
-            "<td>Location: New Aim</td>" +
-            "<td>" +
-            "</td>" + "<td>Arrived: 10am</td>" +
-            "<td>Depart:12pm</td>" +
-            "<td>Load/Unload Time: 2hr</td>" +
-            "<td>Cage Load / unload: 20 / 0</td>" +
-            "<td>Pallet Load / Unload: 0 / 0</td>" +
+            "<td>New Aim</td>" +
+            "<td>10am</td>" +
+            "<td>12pm</td>" +
+            "<td>2hr</td>" +
+            "<td> 20 / 0</td>" +
+            "<td> 0 / 0</td>" +
             "</tr>" +
             "</table>"
         );
@@ -371,7 +367,6 @@ $(document).ready(function() {
     });
 
 
-
     $('#singledriverTable').Tabledit({
         url: 'http://localhost:8080/driver/single',
         eventType: 'dblclick',
@@ -379,7 +374,7 @@ $(document).ready(function() {
             identifier: [0, 'id'],
             editable: [
                 [1, 'Date'],
-                [2, 'Start Time}'],
+                [2, 'Start Time'],
                 [3, 'End Time'],
                 [4, 'Break'],
                 [5, 'Total Hours']
@@ -387,6 +382,23 @@ $(document).ready(function() {
         }
     });
 
+
+
+    $('#innerTable').Tabledit({
+        url: 'http://localhost:8080/driver/single',
+        eventType: 'dblclick',
+        columns: {
+            identifier: [0, 'id'],
+            editable: [
+                [1, 'Location'],
+                [2, 'Arrived'],
+                [3, 'Depart'],
+                [4, 'Load / Unload Time'],
+                [5, 'Load / Unload Cage'],
+                [5, 'Load / Unload Pallet']
+            ],
+        }
+    });
 
     $('input[name="dates"]').daterangepicker({
         singleDatePicker: true,
