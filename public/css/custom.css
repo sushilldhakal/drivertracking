@@ -335,12 +335,16 @@ label {
     margin-right: auto;
     padding:5px;
   }
-  #singledriverTable .odd td:first-child, #singledriverTable .even td:first-child {
+  #singledriverTable .odd td:first-child, #singledriverTable .even td:first-child,
+  #searchDateRange .odd td:first-child, #searchDateRange .even td:first-child{
     background: url('https://datatables.net/examples/resources/details_open.png') no-repeat center center;
     cursor: pointer;
   }
   
-  #singledriverTable tr.even.shown td:first-child,#singledriverTable tr.odd.shown td:first-child {
+  #singledriverTable tr.even.shown td:first-child,
+  #singledriverTable tr.odd.shown td:first-child,
+  #searchDateRange tr.even.shown td:first-child,
+  #searchDateRange tr.odd.shown td:first-child{
     background: url('https://datatables.net/examples/resources/details_close.png') no-repeat center center;
   }
 
