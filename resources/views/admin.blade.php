@@ -8,8 +8,7 @@
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Dashboard</title>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link href="{{ asset('css/base.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
@@ -25,8 +24,7 @@
                 <img src="{{ asset('img/icon.svg') }}" alt="Lock icon" class="main-logo img-fluid">
                 <div class="header__pane ml-auto">
                     <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                            data-class="closed-sidebar">
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
@@ -45,8 +43,7 @@
             </div>
             <div class="app-header__menu">
                 <span>
-                    <button type="button"
-                        class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                         <span class="btn-icon-wrapper">
                             <i class="fa fa-ellipsis-v fa-w-6"></i>
                         </span>
@@ -77,8 +74,7 @@
                     <div class="logo-src"></div>
                     <div class="header__pane ml-auto">
                         <div>
-                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                                data-class="closed-sidebar">
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                                 <span class="hamburger-box">
                                     <span class="hamburger-inner"></span>
                                 </span>
@@ -97,8 +93,7 @@
                 </div>
                 <div class="app-header__menu">
                     <span>
-                        <button type="button"
-                            class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                             <span class="btn-icon-wrapper">
                                 <i class="fa fa-ellipsis-v fa-w-6"></i>
                             </span>
@@ -110,34 +105,34 @@
                         <ul class="vertical-nav-menu">
                             <li>
                                 <!-- class="mm-active" -->
-                                <a href="/dashboard">
+                                <a href="{{route('admin.dashboard')}}">
                                     <i class="metismenu-icon pe-7s-graph1"></i>
                                     Dashboard
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/driver">
+                                <a href="{{route('admin.driver')}}">
                                     <i class="metismenu-icon pe-7s-helm"></i>
                                     Drivers Details
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/location">
+                                <a href="{{route('admin.location')}}">
                                     <i class="metismenu-icon pe-7s-map-marker"></i>
                                     Location Details
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/depot">
+                                <a href="{{route('admin.depot')}}">
                                     <i class="metismenu-icon pe-7s-map-marker"></i>
                                     Depot Details
                                 </a>
                             </li>
                             <li>
-                                <a href="/search">
+                                <a href="{{route('admin.search')}}">
                                     <i class="metismenu-icon pe-7s-search"></i>
                                     Search
                                 </a>

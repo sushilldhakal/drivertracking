@@ -12,7 +12,7 @@
                         </i>
                     </div>
                     <div>
-                        Drivers
+                        single
                         <div class="page-title-subheading">
                             All drivers associated with 4th Dimension
                         </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="page-title-actions">
                     <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal"
-                        data-target="#addDrivers">Add Drivers</button>
+                        data-target="#editDrivers">Edit Driver Detail</button>
                 </div>
             </div>
         </div>
@@ -28,83 +28,26 @@
         <div class="">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Drivers</h5>
+                    <h5 class="card-title">Driver Name - comment</h5>
                     <div class="card-content">
 
 
 
 
-                        <table id="driverTable" class="table" data-id-field="code" data-sort-name="value1"
+                        <table id="singledriverTable" class="table" data-id-field="code" data-sort-name="value1"
                             data-sort-order="desc" data-show-chart="false" data-pagination="false"
                             data-show-pagination-switch="false">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Pin</th>
-                                    <th>Depot</th>
-                                    <th>Comments</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
+                                    <th></th>
+                                    <!-- <th>Id</th> -->
+                                    <th>Date</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Break</th>
+                                    <th>Total Hours</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td><a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
-                                </tr>
-
-                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -135,13 +78,13 @@
 </div>
 </div>
 
-<div class="modal fade" id="addDrivers" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+<div class="modal fade" id="editDrivers" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-modal="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <form class="form w-100">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Drivers</h5>
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Edit Drivers</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -155,8 +98,6 @@
 
                         <div class="col-md-6 relative-class">
                             <label>Pin Number</label>
-                            <!-- <input type="number" class="form-control" placeholder="Generate Pin" required=""> -->
-
                             <button id="pinGenerate"
                                 class="btn btn-hover btn-default btn-rounded btn-small btn-custom btn-warning">
                                 Generate Pin
@@ -224,7 +165,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -246,31 +186,219 @@ $(document).ready(function() {
         $("#formGridPin").val(newNumber.toString());
     });
 
-    var table = $('#driverTable').DataTable({
-        select: false,
-        "columnDefs": [{
-            className: "Name",
-            "targets": [0],
-            "visible": true,
-            "searchable": true
-        }]
+
+    $('#singledriverTable tbody').on('click', 'td:first-child', function() {
+        var tr = $(this).closest('tr');
+        var row = table.row(tr);
+
+        if (row.child.isShown()) {
+            // This row is already open - close it.
+            row.child.hide();
+            tr.removeClass('shown');
+        } else {
+            // Open row.
+            row.child('foo').show();
+            tr.addClass('shown');
+        }
     });
-    $('#driverTable').Tabledit({
-        url: 'http://localhost:8080/driver',
+
+    var data = [{
+            id: "1",
+            date: "27 Feb 2022",
+            startTime: "8:00am",
+            endTime: "5:00pm",
+            break: "1hr",
+            totalHour: "9hr",
+            ext: [{
+                    location: " New Aim",
+                    arrived: "8:00am",
+                    Depart: "10:00am",
+                    loadunloadTime: "2hr",
+                    cageload: "0",
+                    cageUnload: "50",
+                    palateLoad: "0",
+                    palateUnload: "0"
+                },
+                {
+                    location: " New Aim",
+                    arrived: "8:00am",
+                    Depart: "10:00am",
+                    loadunloadTime: "2hr",
+                    cageload: "0",
+                    cageUnload: "50",
+                    palateLoad: "0",
+                    palateUnload: "0"
+                },
+                {
+                    location: " New Aim",
+                    arrived: "8:00am",
+                    Depart: "10:00am",
+                    loadunloadTime: "2hr",
+                    cageload: "0",
+                    cageUnload: "50",
+                    palateLoad: "0",
+                    palateUnload: "0"
+                }
+            ]
+        },
+        {
+            id: "2",
+            date: "26 Feb 2022",
+            startTime: "8:00am",
+            endTime: "5:00pm",
+            break: "1hr",
+            totalHour: "9hr",
+            ext: [{
+                location: " New Aim",
+                arrived: "8:00am",
+                Depart: "10:00am",
+                loadunloadTime: "2hr",
+                cageload: "0",
+                cageUnload: "50",
+                palateLoad: "0",
+                palateUnload: "0"
+            }]
+        },
+        {
+            id: "3",
+            date: "25 Feb 2022",
+            startTime: "8:00am",
+            endTime: "5:00pm",
+            break: "1hr",
+            totalHour: "9hr",
+            ext: [{
+                location: " New Aim",
+                arrived: "8:00am",
+                Depart: "10:00am",
+                loadunloadTime: "2hr",
+                cageload: "0",
+                cageUnload: "50",
+                palateLoad: "0",
+                palateUnload: "0"
+            }]
+        },
+
+    ]
+
+    function format(d) {
+        return (
+            '<table id="innerTable" class="table mb-0 w-100">' +
+            '<thead><th>Location</th>' +
+            '<th>Arrived</th>' +
+            '<th>Depart</th>' +
+            '<th>Load / Unload Time</th>' +
+            '<th>Load / Unload Cage</th>' +
+            '<th>Load / Unload Pallet</th>' +
+            '</thead>' +
+            '<tr class="table-primary">' +
+            "<td>New Aim</td>" +
+            "<td>10am</td>" +
+            "<td>12pm</td>" +
+            "<td>2hr</td>" +
+            "<td> 20 / 0</td>" +
+            "<td> 0 / 0</td>" +
+            "</tr>" +
+            '<tr class="table-primary">' +
+            "<td>New Aim</td>" +
+            "<td>10am</td>" +
+            "<td>12pm</td>" +
+            "<td>2hr</td>" +
+            "<td> 20 / 0</td>" +
+            "<td> 0 / 0</td>" +
+            "</tr>" +
+            '<tr class="table-primary">' +
+            "<td>New Aim</td>" +
+            "<td>10am</td>" +
+            "<td>12pm</td>" +
+            "<td>2hr</td>" +
+            "<td> 20 / 0</td>" +
+            "<td> 0 / 0</td>" +
+            "</tr>" +
+            "</table>"
+        );
+    }
+
+    var table = $("#singledriverTable").DataTable({
+        data: data,
+        columns: [{
+                className: "details-control",
+                orderable: false,
+                data: null,
+                defaultContent: '<i class="material-icons"></i>'
+            },
+            // {
+            //     data: "id"
+            // },
+            {
+                data: "date"
+            },
+            {
+                data: "startTime"
+            },
+            {
+                data: "endTime"
+            },
+            {
+                data: "break"
+            },
+            {
+                data: "totalHour"
+            }, {
+                data: "ext",
+                visible: false
+            }
+        ],
+        order: [
+            [1, "asc"]
+        ]
+    });
+
+    $("#singledriverTable tbody").on("click", "td.details-control", function() {
+        var tr = $(this).closest("tr");
+        var row = table.row(tr);
+
+        if (row.child.isShown()) {
+            row.child.hide();
+            tr.removeClass("shown");
+        } else {
+            row.child(format(row.data()), "p-0").show();
+            tr.addClass("shown");
+        }
+    });
+
+
+    $('#singledriverTable').Tabledit({
+        url: '{{route('admin.driver.single')}}',
         eventType: 'dblclick',
-        editButton: false,
         columns: {
             identifier: [0, 'id'],
             editable: [
-                // [1, 'name'],
-                // [3, 'depot', '{"1": "Port Melb", "2": "Dandenong", "3": "TUL"}'],
-                // [4, 'comment'],
-                // [5, 'Phone number'],
-                // [6, 'Email']
+                [1, 'Date'],
+                [2, 'Start Time'],
+                [3, 'End Time'],
+                [4, 'Break'],
+                [5, 'Total Hours']
             ],
         }
     });
 
+
+
+    $('#innerTable').Tabledit({
+        url: '{{route('admin.driver.single')}}',
+        eventType: 'dblclick',
+        columns: {
+            identifier: [0, 'id'],
+            editable: [
+                [1, 'Location'],
+                [2, 'Arrived'],
+                [3, 'Depart'],
+                [4, 'Load / Unload Time'],
+                [5, 'Load / Unload Cage'],
+                [5, 'Load / Unload Pallet']
+            ],
+        }
+    });
 
     $('input[name="dates"]').daterangepicker({
         singleDatePicker: true,

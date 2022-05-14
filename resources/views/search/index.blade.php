@@ -79,7 +79,7 @@
                             <tbody>
                                 <tr>
                                     <td>14 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
                                     <td>8:00am</td>
                                     <td>5:00pm</td>
                                     <td>30min</td>
@@ -87,7 +87,7 @@
                                 </tr>
                                 <tr>
                                     <td>15 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Suman Shrestha</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Suman Shrestha</a></td>
                                     <td>8:00am</td>
                                     <td>5:00pm</td>
                                     <td>30min</td>
@@ -95,7 +95,7 @@
                                 </tr>
                                 <tr>
                                     <td>16 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
                                     <td>8:00am</td>
                                     <td>5:00pm</td>
                                     <td>30min</td>
@@ -103,7 +103,7 @@
                                 </tr>
                                 <tr>
                                     <td>17 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
                                     <td>8:00am</td>
                                     <td>5:00pm</td>
                                     <td>30min</td>
@@ -111,7 +111,7 @@
                                 </tr>
                                 <tr>
                                     <td>18 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
                                     <td>8:00am</td>
                                     <td>5:00pm</td>
                                     <td>30min</td>
@@ -119,7 +119,7 @@
                                 </tr>
                                 <tr>
                                     <td>19 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil Dhakal</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
                                     <td>8:00am</td>
                                     <td>5:00pm</td>
                                     <td>30min</td>
@@ -256,7 +256,7 @@
                             <tbody>
                                 <tr>
                                     <td>14 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -267,7 +267,7 @@
                                 </tr>
                                 <tr>
                                     <td>15 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Suman</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Suman</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -277,7 +277,7 @@
                                 </tr>
                                 <tr>
                                     <td>16 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -287,7 +287,7 @@
                                 </tr>
                                 <tr>
                                     <td>17 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -297,7 +297,7 @@
                                 </tr>
                                 <tr>
                                     <td>18 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -307,7 +307,7 @@
                                 </tr>
                                 <tr>
                                     <td>19 Jan 2022</td>
-                                    <td> <a href="http://localhost:8080/driver/single">Sushil</a></td>
+                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 

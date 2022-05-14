@@ -40,7 +40,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'break' => 'boolean'
+        'break' => 'boolean',
+        'is_admin' => 'boolean'
     ];
 
 
@@ -52,6 +53,8 @@ class User extends Authenticatable
     protected $visible = [
         'email',
         'phone_number',
+        'pin',
+        'is_admin',
         'id',
         'name',
     ];
@@ -69,5 +72,10 @@ class User extends Authenticatable
     public function isInBreak()
     {
         return $this->break;
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 }
