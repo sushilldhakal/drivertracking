@@ -118,7 +118,7 @@
 
                             <li>
                                 <a href="/driver">
-                                    <i class="metismenu-icon pe-7s-helm"></i>
+                                    <i class="metismenu-icon pe-7s-car"></i>
                                     Drivers Details
                                 </a>
                             </li>
