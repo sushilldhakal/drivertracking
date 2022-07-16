@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addDrivers">Add Drivers</button>
+                    <a class="btn btn-shadow btn-danger" href="{{route('admin.driver.new')}}">Add Drivers</a>
                 </div>
             </div>
         </div>
@@ -29,10 +29,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Drivers</h5>
                     <div class="card-content">
-
-
-
-
                         <table id="driverTable" class="table" data-id-field="code" data-sort-name="value1" data-sort-order="desc" data-show-chart="false" data-pagination="false" data-show-pagination-switch="false">
                             <thead>
                                 <tr>
@@ -46,15 +42,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach(\App\Models\User::all() as $driver)
+                                @foreach(\App\Models\Driver::with('depot')->get() as $driver)
                                 <tr>
                                     <td>1</td>
-                                    <td><a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
-                                    <td>1234</td>
-                                    <td>Port Melbourne</td>
-                                    <td>port</td>
-                                    <td>04339260789</td>
-                                    <td>sus.hill.dhakal@gmail.com</td>
+                                    <td><a href="{{route('admin.driver.single')}}">{{$driver->name}}</a></td>
+                                    <td>{{$driver->pin}}</td>
+                                    <td>{{$driver->depot->name}}</td>
+                                    <td>{{$driver->comments}}</td>
+                                    <td>{{$driver->phone}}</td>
+                                    <td>{{$driver->email}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

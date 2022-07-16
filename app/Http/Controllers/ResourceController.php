@@ -31,7 +31,7 @@ class ResourceController extends Controller
      */
     public function store(StoreResource $request, ResourceModel $model)
     {
-
+        abort_if(!$model->fillable, 500, 'Add fillable property in model:' . $model->class_alias);
         $model->user_id = auth()->id();
 
         $model->fill($request->only($model->fillable));
@@ -42,7 +42,11 @@ class ResourceController extends Controller
 
         $model->save();
 
-        return back();
+        if($request->has('redirect_url')) {
+            return redirect($request->get('redirect_url'));
+        }
+
+        return back()->with('success','Resource has been created.');
     }
 
     /**

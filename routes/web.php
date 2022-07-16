@@ -32,11 +32,12 @@ Route::prefix('admin')->group(function(){
         Route::resource('resource','ResourceController');
         Route::view('/','dashboard.index')->name('admin.dashboard');
         Route::view('/driver','driver.index')->name("admin.driver");
+        Route::view('/driver/new','driver.new')->name("admin.driver.new");
         Route::view('/location','location.index')->name('admin.location');
         Route::view('/depot','depot.index')->name('admin.depot');
         Route::view('/search','search.index')->name('admin.search');
         Route::view('/driver/single','driver.single')->name('admin.driver.single');
-    }); 
+    });
 });
 
 Route::post('punch-in','AuthController@punchIn')->name('punch-in');
