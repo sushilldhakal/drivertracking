@@ -110,34 +110,34 @@
                         <ul class="vertical-nav-menu">
                             <li>
                                 <!-- class="mm-active" -->
-                                <a href="/dashboard">
+                                <a href="{{route('admin.dashboard')}}">
                                     <i class="metismenu-icon pe-7s-graph1"></i>
                                     Dashboard
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/driver">
-                                    <i class="metismenu-icon pe-7s-car"></i>
+                                <a href="{{route('admin.driver')}}">
+                                    <i class="metismenu-icon pe-7s-helm"></i>
                                     Drivers Details
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/location">
+                                <a href="{{route('admin.location')}}">
                                     <i class="metismenu-icon pe-7s-map-marker"></i>
                                     Location Details
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/depot">
+                                <a href="{{route('admin.depot')}}">
                                     <i class="metismenu-icon pe-7s-map-marker"></i>
                                     Depot Details
                                 </a>
                             </li>
                             <li>
-                                <a href="/search">
+                                <a href="{{route('admin.search')}}">
                                     <i class="metismenu-icon pe-7s-search"></i>
                                     Search
                                 </a>

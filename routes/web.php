@@ -17,33 +17,33 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function(){
     Route::middleware('not-in-break')->group(function(){
         Route::resource('resource','ResourceController');
-        Route::view('punch-in','Form.index')->name('main');
+        Route::view('punch-in','form.index')->name('main');
     });
-    Route::view('/','welcome');
     Route::get('break','AuthController@break');
     Route::view('/is-in-break','break');
 
 });
 
 Route::prefix('admin')->group(function(){
-    Route::view('login','Admin.login')->name('admin.login');
-    Route::post('login','AuthController@adminLogin');
+    Route::view('login','admin.login')->name('admin.login');
+    Route::post('login','AuthController@adminLogin')->name('admin.login.post');
 
     Route::middleware('admin')->group(function(){
-
-    });
+        Route::resource('resource','ResourceController');
+        Route::view('/','dashboard.index')->name('admin.dashboard');
+        Route::view('/driver','driver.index')->name("admin.driver");
+        Route::view('/location','location.index')->name('admin.location');
+        Route::view('/depot','depot.index')->name('admin.depot');
+        Route::view('/search','search.index')->name('admin.search');
+        Route::view('/driver/single','driver.single')->name('admin.driver.single');
+    }); 
 });
 
 Route::post('punch-in','AuthController@punchIn')->name('punch-in');
 
-Route::view('/','Pin.index');
-Route::view('/dashboard','Dashboard.index');
-Route::view('/login','Pin.index')->name('login');
-Route::view('/admin/login','Admin.login')->name('admin.login');
-Route::view('/form','Form.index');
-Route::view('/driver','Driver.index');
-Route::view('/driver/single','Driver.single');
-Route::view('/location','Location.index');
-Route::view('/depot','Depot.index');
-Route::view('/search','Search.index');
-Route::view('/punch-in','Pin.index')->name('punch-in');
+// Route::view('/','Pin.index');
+Route::view('/login','pin.index')->name('login');
+
+Route::get('/table/{table}', function($table){
+    return \DB::table(\Str::plural($table))->get();
+});

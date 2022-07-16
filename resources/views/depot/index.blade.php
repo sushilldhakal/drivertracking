@@ -1,7 +1,9 @@
 @extends('admin')
 
 @section('content')
-
+@if($errors->any())
+{{dd($errors->all())}}
+@endif
 <div class="app-main__outer">
     <div class="app-main__inner">
         <div class="app-page-title">
@@ -19,8 +21,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal"
-                        data-target="#addDepot">Add Depot</button>
+                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addDepot">Add Depot</button>
                 </div>
             </div>
         </div>
@@ -30,9 +31,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Locations</h5>
                     <div class="card-content">
-                        <table id="depotTable" class="table" data-id-field="code" data-sort-name="value1"
-                            data-sort-order="desc" data-show-chart="false" data-pagination="false"
-                            data-show-pagination-switch="false">
+                        <table id="depotTable" class="table" data-id-field="code" data-sort-name="value1" data-sort-order="desc" data-show-chart="false" data-pagination="false" data-show-pagination-switch="false">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -40,54 +39,18 @@
                                     <th>Location</th>
                                     <th>Cage Number</th>
                                     <th>Pallet Number</th>
-
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach(\App\Models\Depot::with('location')->get() as $depot)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Port Melb</td>
-                                    <td>63 salmon street</td>
-                                    <td>214</td>
-                                    <td>150</td>
-
+                                    <td>{{$depot->id}}</td>
+                                    <td>{{$depot->name}}</td>
+                                    <td>{{$depot->location->name}}</td>
+                                    <td>{{$depot->number_of_cage}}</td>
+                                    <td>{{$depot->number_of_pallet}}</td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Port Melb</td>
-                                    <td>63 salmon street</td>
-                                    <td>214</td>
-                                    <td>150</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Port Melb</td>
-                                    <td>63 salmon street</td>
-                                    <td>214</td>
-                                    <td>150</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Port Melb</td>
-                                    <td>63 salmon street</td>
-                                    <td>214</td>
-                                    <td>150</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Port Melb</td>
-                                    <td>63 salmon street</td>
-                                    <td>214</td>
-                                    <td>150</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Port Melb</td>
-                                    <td>63 salmon street</td>
-                                    <td>214</td>
-                                    <td>150</td>
-                                </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -119,11 +82,12 @@
 </div>
 </div>
 
-<div class="modal fade" id="addDepot" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true"
-    data-keyboard="false" data-backdrop="static">
+<div class="modal fade" id="addDepot" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <form class="form w-100">
+            <form class="form w-100" method="POST" action="{{route('resource.store')}}">
+                @csrf
+                <input type="hidden" name="resource_type" value="depot">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Depot</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -133,21 +97,26 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Depot Name</label>
-                        <input type="text" class="form-control" placeholder="Name" required="">
+                        <input type="text" name="name" class="form-control" placeholder="Name" required="required">
                     </div>
 
                     <div class="form-group">
                         <label>Location</label>
-                        <input type="text" class="form-control" placeholder="Location" required="">
+                        <select name="location_id" id="" required="true" class="mb-2 form-control">
+                            <option value="">Select Location</option>
+                            @foreach (\App\Models\Location::all() as $location)
+                            <option value="{{$location->id}}">{{$location->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label>Number of Cage</label>
-                        <input type="number" class="form-control" placeholder="Cage number" required="">
+                        <input type="number" name="number_of_cage" class="form-control" placeholder="Cage number" required="required">
                     </div>
                     <div class="form-group">
                         <label>Number of pallet</label>
-                        <input type="number" class="form-control" placeholder="pallet number" required="">
+                        <input type="number" name="number_of_pallet" class="form-control" placeholder="pallet number" required="required">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -161,30 +130,30 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 
 
 
-    var table = $('#depotTable').DataTable({
-        select: false,
-        "columnDefs": [{
-            className: "Name",
-            "targets": [0],
-            "visible": true,
-            "searchable": true
-        }]
-    });
-    $('#depotTable').Tabledit({
-        url: 'http://localhost:8080/depot',
-        columns: {
-            identifier: [0, 'id'],
-            editable: [
-                [1, 'name'],
-                [2, 'location']
-            ],
-        }
-    });
+        var table = $('#depotTable').DataTable({
+            select: false,
+            "columnDefs": [{
+                className: "Name",
+                "targets": [0],
+                "visible": true,
+                "searchable": true
+            }]
+        });
+        $('#depotTable').Tabledit({
+            url: 'http://localhost:8080/depot',
+            columns: {
+                identifier: [0, 'id'],
+                editable: [
+                    [1, 'name'],
+                    [2, 'location']
+                ],
+            }
+        });
 
-})
+    })
 </script>
 @endsection

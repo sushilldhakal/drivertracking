@@ -368,7 +368,7 @@ $(document).ready(function() {
 
 
     $('#singledriverTable').Tabledit({
-        url: 'http://localhost:8080/driver/single',
+        url: '{{route('admin.driver.single')}}',
         eventType: 'dblclick',
         columns: {
             identifier: [0, 'id'],
@@ -385,7 +385,7 @@ $(document).ready(function() {
 
 
     $('#innerTable').Tabledit({
-        url: 'http://localhost:8080/driver/single',
+        url: '{{route('admin.driver.single')}}',
         eventType: 'dblclick',
         columns: {
             identifier: [0, 'id'],

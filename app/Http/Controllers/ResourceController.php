@@ -31,19 +31,18 @@ class ResourceController extends Controller
      */
     public function store(StoreResource $request, ResourceModel $model)
     {
+
         $model->user_id = auth()->id();
-        
+
         $model->fill($request->only($model->fillable));
 
-        if($request->has('image')) {
+        if ($request->has('image')) {
             $model->image_id = $model->storeImage($request->get('image'));
         }
-       
+
         $model->save();
 
-        auth()->logout();
-
-        return redirect('/login');
+        return back();
     }
 
     /**

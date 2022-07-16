@@ -56,7 +56,6 @@
                         
                         <div class="col-md-7">
                             <select class="form-control" id="selectLocation">
-                               
                                 <option>Port Melbourne</option>
                                 <option>New Aim</option>
                                 <option>Dandenong</option>

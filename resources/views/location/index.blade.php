@@ -2,6 +2,9 @@
 
 @section('content')
 
+@if($errors->any())
+{{dd($errors->all())}}
+@endif
 <div class="app-main__outer">
     <div class="app-main__inner">
         <div class="app-page-title">
@@ -19,12 +22,9 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal"
-                        data-target="#addLocation">Add Location</button>
-                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal"
-                        data-target="#addTruck">Add Truck Type</button>
-                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal"
-                        data-target="#addSup">Add Supplier</button>
+                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addLocation">Add Location</button>
+                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addTruck">Add Truck Type</button>
+                    <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addSup">Add Supplier</button>
                 </div>
             </div>
         </div>
@@ -34,9 +34,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Locations</h5>
                         <div class="card-content">
-                            <table id="locationTable" class="table" data-id-field="code" data-sort-name="value2"
-                                data-sort-order="desc" data-show-chart="false" data-pagination="false"
-                                data-show-pagination-switch="false">
+                            <table id="locationTable" class="table" data-id-field="code" data-sort-name="value2" data-sort-order="desc" data-show-chart="false" data-pagination="false" data-show-pagination-switch="false">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -47,48 +45,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach(\App\Models\Location::with(['truck_type','supplier'])->get() as $location)
                                     <tr>
-                                        <td>1</td>
-                                        <td>New Aim</td>
-                                        <td>10 jason street, oakleigh south</td>
-                                        <td>Double B</td>
-                                        <td>Agencye</td>
+                                        <td>{{$location->id}}</td>
+                                        <td>{{$location->name}}</td>
+                                        <td>{{$location->address}}</td>
+                                        <td>{{$location->truck_type?->name}}</td>
+                                        <td>{{$location->supplier?->name}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>New Aim</td>
-                                        <td>10 jason street, oakleigh south</td>
-                                        <td>Double B</td>
-                                        <td>Agencye</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>New Aim</td>
-                                        <td>10 jason street, oakleigh south</td>
-                                        <td>Double B</td>
-                                        <td>Agencye</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>New Aim</td>
-                                        <td>10 jason street, oakleigh south</td>
-                                        <td>Double B</td>
-                                        <td>Agencye</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>New Aim</td>
-                                        <td>10 jason street, oakleigh south</td>
-                                        <td>Double B</td>
-                                        <td>Agencye</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>New Aim</td>
-                                        <td>10 jason street, oakleigh south</td>
-                                        <td>Double B</td>
-                                        <td>Agencye</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -100,9 +65,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Truck Type</h5>
                         <div class="card-content">
-                            <table id="truckTable" class="table" data-id-field="code" data-sort-name="value2"
-                                data-sort-order="desc" data-show-chart="false" data-pagination="false"
-                                data-show-pagination-switch="false">
+                            <table id="truckTable" class="table" data-id-field="code" data-sort-name="value2" data-sort-order="desc" data-show-chart="false" data-pagination="false" data-show-pagination-switch="false">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -110,18 +73,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach(\App\Models\TruckType::all() as $type)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Double B</td>
+                                        <td>{{$type->id}}</td>
+                                        <td>{{$type->name}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Double B</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Double B</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -131,9 +88,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Supplier</h5>
                         <div class="card-content">
-                            <table id="supTable" class="table" data-id-field="code" data-sort-name="value2"
-                                data-sort-order="desc" data-show-chart="false" data-pagination="false"
-                                data-show-pagination-switch="false">
+                            <table id="supTable" class="table" data-id-field="code" data-sort-name="value2" data-sort-order="desc" data-show-chart="false" data-pagination="false" data-show-pagination-switch="false">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -141,18 +96,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach(\App\Models\Supplier::all() as $type)
                                     <tr>
-                                        <td>1</td>
-                                        <td>XYZ Company</td>
+                                        <td>{{$type->id}}</td>
+                                        <td>{{$type->name}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>XYZ Company</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>XYZ Company</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -187,11 +136,12 @@
 
 </div>
 
-<div class="modal fade" id="addLocation" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-modal="true" data-keyboard="false" data-backdrop="static">
+<div class="modal fade" id="addLocation" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <form class="form w-100">
+            <form class="form w-100" action="{{route('resource.store')}}" method="POST">
+                @csrf
+                <input type="hidden" name="resource_type" value="location">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Location</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -201,27 +151,31 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Location Name</label>
-                        <input type="text" class="form-control" placeholder="Location" required="">
+                        <input type="text" name="name" class="form-control" placeholder="Location" required="requried">
                     </div>
 
                     <div class="form-group">
                         <label>Location Address</label>
-                        <input type="text" class="form-control" placeholder="Location Address" required="">
+                        <input type="text" name="address" class="form-control" placeholder="Location Address" required="requried">
                     </div>
 
                     <div class="form-group">
                         <label>Truck Type</label>
-                        <select class="mb-2 form-control">
-                            <option>Select Truck Type</option>
-                            <option>Default Select</option>
+                        <select name="truck_type_id" required="true" class="mb-2 form-control">
+                            <option value="">Select an option</option>
+                            @foreach(\App\Models\TruckType::all() as $type)
+                            <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Supplier</label>
-                        <select class="mb-2 form-control">
-                            <option>Select Supplier</option>
-                            <option>Default Select</option>
+                        <select name="supplier_id" required="true" class="mb-2 form-control">
+                            <option value="">Select an option</option>
+                            @foreach(\App\Models\Supplier::all() as $type)
+                            <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -235,11 +189,12 @@
     </div>
 </div>
 
-<div class="modal fade" id="addTruck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true"
-    data-keyboard="false" data-backdrop="static">
+<div class="modal fade" id="addTruck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <form class="form w-100">
+            <form class="form w-100" action="{{route('resource.store')}}" method="POST">
+                @csrf
+                <input type="hidden" name="resource_type" value="truck_type">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Truck</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -249,7 +204,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Truck Type Name</label>
-                        <input type="text" class="form-control" placeholder="Truck Type">
+                        <input type="text" class="form-control" name="name" placeholder="Truck Type">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -260,11 +215,12 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="addSup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true"
-    data-keyboard="false" data-backdrop="static">
+<div class="modal fade" id="addSup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <form class="form w-100">
+            <form class="form w-100" action="{{route('resource.store')}}" method="POST">
+                @csrf
+                <input type="hidden" name="resource_type" value="supplier">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Supplier</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -274,7 +230,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Supplier Name</label>
-                        <input type="text" class="form-control" placeholder="Supplier">
+                        <input type="text" name="name" class="form-control" placeholder="Supplier">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -288,60 +244,57 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
-$(document).ready(function() {
-    var table = $('#locationTable').DataTable({
-        select: false,
-        "columnDefs": [{
-            className: "Name",
-            "targets": [0],
-            "visible": true,
-            "searchable": true
-        }]
-    });
+    $(document).ready(function() {
+        var table = $('#locationTable').DataTable({
+            select: false,
+            "columnDefs": [{
+                className: "Name",
+                "targets": [0],
+                "visible": true,
+                "searchable": true
+            }]
+        });
 
-    $('#locationTable').Tabledit({
-        url: 'http://localhost:8080/location',
-        eventType: 'dblclick',
-        editButton: true,
-        columns: {
-            identifier: [0, 'id'],
-            editable: [
-                [1, 'name'],
-                [2, 'Truck Type', '{"1": "Red", "2": "Green", "3": "Blue"}'],
-                [3, 'Supplier', '{"1": "Red", "2": "Green", "3": "Blue"}']
-            ]
-        }
-    });
-
-
-    $('#truckTable').Tabledit({
-        url: 'http://localhost:8080/location',
-        eventType: 'dblclick',
-        editButton: true,
-        columns: {
-            identifier: [0, 'id'],
-            editable: [
-                [1, 'name'],
-                [2, 'Truck Type']
-
-            ]
-        }
-    });
-
-    $('#supTable').Tabledit({
-        url: 'http://localhost:8080/location',
-        eventType: 'dblclick',
-        editButton: true,
-        columns: {
-            identifier: [0, 'id'],
-            editable: [
-                [1, 'name'],
-                [2, 'Supplier']
-            ]
-        }
-    });
+        $('#locationTable').Tabledit({
+            url: 'http://localhost:8080/location',
+            eventType: 'dblclick',
+            editButton: true,
+            columns: {
+                identifier: [0, 'id'],
+                editable: [
+                    [1, 'name'],
+                    [2, 'Truck Type', '{"1": "Red", "2": "Green", "3": "Blue"}'],
+                    [3, 'Supplier', '{"1": "Red", "2": "Green", "3": "Blue"}']
+                ]
+            }
+        });
 
 
-})
+        $('#truckTable').Tabledit({
+            url: 'http://localhost:8080/location',
+            eventType: 'dblclick',
+            editButton: true,
+            columns: {
+                identifier: [0, 'id'],
+                editable: [
+                    [1, 'name'],
+                    [2, 'Truck Type']
+                ]
+            }
+        });
+
+        $('#supTable').Tabledit({
+            url: 'http://localhost:8080/location',
+            eventType: 'dblclick',
+            editButton: true,
+            columns: {
+                identifier: [0, 'id'],
+                editable: [
+                    [1, 'name'],
+                    [2, 'Supplier']
+                ]
+            }
+        });
+    })
 </script>
 @endsection
