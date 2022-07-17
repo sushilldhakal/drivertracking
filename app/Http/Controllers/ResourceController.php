@@ -8,7 +8,6 @@ use App\Http\Requests\ListResource;
 use App\Http\Requests\StoreResource;
 use App\Http\Requests\UpdateResource;
 use App\Interfaces\ResourceModel;
-use Illuminate\Support\Facades\Storage;
 
 class ResourceController extends Controller
 {
@@ -30,7 +29,9 @@ class ResourceController extends Controller
      */
     public function store(StoreResource $request, ResourceModel $model)
     {
+
         abort_if(! $model->fillable, 500, 'Add fillable property in model:'.$model->class_alias);
+
         $model->user_id = auth()->id();
 
         $model->fill($request->only($model->fillable));

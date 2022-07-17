@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
-use App\Interfaces\ResourceModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Driver extends Model implements ResourceModel
+class Driver extends Base
 {
-    use HasFactory;
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
+    public $casts = [
+        'is_admin'=>'bool',
+        'break'=>'bool',
+    ];
 
     public $fillable = [
         'name',
@@ -22,6 +25,8 @@ class Driver extends Model implements ResourceModel
     ];
 
     public $table = 'users';
+
+    public $resource_type = 'driver';
 
     protected static function booted()
     {

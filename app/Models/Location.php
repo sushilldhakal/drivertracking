@@ -2,14 +2,8 @@
 
 namespace App\Models;
 
-use App\Interfaces\ResourceModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Location extends Model implements ResourceModel
+class Location extends Base
 {
-    use HasFactory;
-
     public $fillable = [
         'name',
         'address',

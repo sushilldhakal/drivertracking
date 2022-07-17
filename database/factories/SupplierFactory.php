@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class SupplierFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'user_id' => 1,
+            'user_id' => User::first()->id,
         ];
     }
 }

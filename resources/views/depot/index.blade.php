@@ -44,7 +44,7 @@
                             <tbody>
                                 @foreach(\App\Models\Depot::with('location')->get() as $depot)
                                 <tr>
-                                    <td>{{$depot->id}}</td>
+                                    <td>{{$loop->iteration}}</td>
                                     <td>{{$depot->name}}</td>
                                     <td>{{$depot->location->name}}</td>
                                     <td>{{$depot->number_of_cage}}</td>

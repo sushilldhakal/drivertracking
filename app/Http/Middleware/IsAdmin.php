@@ -19,7 +19,7 @@ class IsAdmin
         if (auth()->check() && auth()->user()->isAdmin()) {
             return $next($request);
         }
-
+        auth()->logout();
         return redirect('/admin/login');
     }
 }

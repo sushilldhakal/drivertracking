@@ -2,16 +2,12 @@
 
 namespace App\Models;
 
-use App\Interfaces\ResourceModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class Log extends Model implements ResourceModel
+class Log extends Base
 {
-    use HasFactory;
-
-    protected $fillable = [
+    public $fillable = [
         'type',
         'load_type',
         'location_id',

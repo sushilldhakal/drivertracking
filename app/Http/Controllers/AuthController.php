@@ -30,9 +30,13 @@ class AuthController extends Controller
     public function adminLogin(AdminLogin $request)
     {
         if (auth()->attempt($request->only(['email', 'password'], ['is_admin' => true]))) {
-            return redirect('/admin');
+            return to_route('admin.dashboard');
         }
+        return to_route('admin.login');
+    }
 
-        return back();
+    public function logout(){
+        auth()->logout();
+        return to_route('admin.login');
     }
 }

@@ -56,9 +56,9 @@
                         <div class="widget-content p-0">
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
-                                    <button class="btn btn-icon font-weight-bold">
+                                    <a  href="{{route('admin.logout')}}" class="btn btn-icon font-weight-bold">
                                         <i class="fas fa-sign-out-alt"></i> Logout
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

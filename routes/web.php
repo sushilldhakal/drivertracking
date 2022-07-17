@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
+    Route::get('logout', 'AuthController@logout')->name('admin.logout');
     Route::view('login', 'admin.login')->name('admin.login');
     Route::post('login', 'AuthController@adminLogin')->name('admin.login.post');
 
@@ -34,7 +35,7 @@ Route::prefix('admin')->group(function () {
         Route::view('/location', 'location.index')->name('admin.location');
         Route::view('/depot', 'depot.index')->name('admin.depot');
         Route::view('/search', 'search.index')->name('admin.search');
-        Route::view('/driver/single', 'driver.single')->name('admin.driver.single');
+        Route::view('/resource/{resource_type}/{resource}', 'driver.single')->name('admin.driver.single');
     });
 });
 
