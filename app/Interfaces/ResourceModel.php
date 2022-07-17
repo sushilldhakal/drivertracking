@@ -2,5 +2,6 @@
 
 namespace App\Interfaces;
 
-interface ResourceModel {
+interface ResourceModel
+{
 }

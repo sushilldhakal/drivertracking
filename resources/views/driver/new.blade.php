@@ -47,7 +47,7 @@
                                     <div class="col-md-6 relative-class">
                                         <label>Pin Number</label>
                                         <!-- <input type="number" class="form-control" placeholder="Generate Pin" required=""> -->
-                                        <input id="formGridPin" type="number" name="pin" value="{{old('pin')}}" class="form-control @if($errors->has('pin')) border border-danger @endif" value="" placeholder="PIN" maxLength="4" minLength="4" />
+                                        <input id="formGridPin"  minlength="4" type="number" name="pin" value="{{old('pin')}}" class="form-control @if($errors->has('pin')) border border-danger @endif" value="" placeholder="PIN" maxLength="4" minLength="4" />
                                         @if($errors->has('pin'))<p class="text text-danger">{{$errors->first('pin')}}</p>@endif
                                     </div>
                                 </div>

@@ -17,8 +17,8 @@ class DataWrapper
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        
-        if($request->expectsJson()){
+
+        if ($request->expectsJson()) {
             $response->setData(['data' => $response->getData()]);
         }
 

@@ -50,9 +50,8 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('resource', function ($value) {
-            return app(ResourceModel::class)->where(['id'=>$value,'user_id'=>auth()->id()])->firstOrFail();
+            return app(ResourceModel::class)->where(['id' => $value, 'user_id' => auth()->id()])->firstOrFail();
         });
-    
     }
 
     /**

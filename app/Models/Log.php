@@ -16,12 +16,12 @@ class Log extends Model implements ResourceModel
         'load_type',
         'location_id',
         'cage',
-        'pallet'
+        'pallet',
     ];
 
     public function storeImage($image)
     {
-        $uuid = uniqid('image_') . '.png';
+        $uuid = uniqid('image_').'.png';
 
         Storage::disk('local')->put($uuid, base64_decode($image));
 
@@ -29,8 +29,8 @@ class Log extends Model implements ResourceModel
 
         $base64_image = $image;
 
-        list($type, $file_data) = explode(';', $base64_image);
-        list(, $file_data) = explode(',', $file_data);
+        [$type, $file_data] = explode(';', $base64_image);
+        [, $file_data] = explode(',', $file_data);
 
         Storage::disk('local')->put($uuid, base64_decode($file_data));
 

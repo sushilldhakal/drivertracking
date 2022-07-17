@@ -16,9 +16,10 @@ class NotInBreak
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->isInBreak()) {
+        if (auth()->user()->isInBreak()) {
             return redirect('/is-in-break');
         }
+
         return $next($request);
     }
 }

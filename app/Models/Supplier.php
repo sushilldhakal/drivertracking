@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Supplier extends Model implements ResourceModel
 {
     use HasFactory;
-    
+
     public $fillable = [
-        'name'
+        'name',
     ];
 }

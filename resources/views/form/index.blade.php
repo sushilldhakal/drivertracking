@@ -72,12 +72,11 @@
                     <label class="col-md-5 col-form-label font-weight-bold">Select Location</label>
 
                     <div class="col-md-7">
-                        <select class="form-control" name="location_id" id="selectLocation">
-                            <option @selected(old('location_id')==1) value="1">Port Melbourne</option>
-                            <option @selected(old('location_id')==2) value="2">New Aim</option>
-                            <option @selected(old('location_id')==3) value="3">Dandenong</option>
-                            <option @selected(old('location_id')==4) value="4">Dai Post</option>
-                            <option @selected(old('location_id')==5) value="5">Sendle</option>
+                        <select class="form-control" required name="location_id" id="selectLocation">
+                            <option value="">Select an option</option>
+                            @foreach(\App\Models\Location::all() as $location)
+                                <option value="{{$location->id}}">{{$location->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

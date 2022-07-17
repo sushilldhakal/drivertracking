@@ -6,8 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreResource extends FormRequest
 {
-
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,7 +23,7 @@ class StoreResource extends FormRequest
      */
     public function rules()
     {
-        return ['resource_type' => 'required|bail|in:' . implode(',', array_keys(config('resource.types')))] + $this->pickSpecificRules($this->get('resource_type'));
+        return ['resource_type' => 'required|bail|in:'.implode(',', array_keys(config('resource.types')))] + $this->pickSpecificRules($this->get('resource_type'));
     }
 
     public function pickSpecificRules($type)
@@ -38,14 +36,14 @@ class StoreResource extends FormRequest
         return [
             'log' => [
                 'location_id' => 'nullable',
-                'type' =>'required',
+                'type' => 'required',
                 'image' => 'nullable',
             ],
-            'driver'=>[
-                'pin'=>'unique:users',
-                'email'=>'unique:users',
-                'role'=>'in:driver',
-            ]
+            'driver' => [
+                'pin' => 'unique:users',
+                'email' => 'unique:users',
+                'role' => 'in:driver',
+            ],
         ];
     }
 }

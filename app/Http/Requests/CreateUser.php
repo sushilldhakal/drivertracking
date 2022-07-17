@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\RequiredIf;
 
 class CreateUser extends FormRequest
 {
@@ -25,10 +24,10 @@ class CreateUser extends FormRequest
     public function rules()
     {
         return [
-            'email'=>['email','unique:users,email','required_without:phone_number'],
-            'phone_number'=>'unique:users,phone_number|required_without:email|integer',
-            'name'=>'string',
-            'password'=>'min:8',
+            'email' => ['email', 'unique:users,email', 'required_without:phone_number'],
+            'phone_number' => 'unique:users,phone_number|required_without:email|integer',
+            'name' => 'string',
+            'password' => 'min:8',
         ];
     }
 }

@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class TruckType extends Model implements ResourceModel
 {
     use HasFactory;
-    
+
     public $fillable = [
-        'name'
+        'name',
     ];
 }

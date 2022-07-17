@@ -20,9 +20,9 @@ class DepotFactory extends Factory
         return [
             'name' => $this->faker->name,
             'location_id' => Location::pluck('id')->shuffle()->first(),
-            'number_of_pallet' => random_int(5,100),
-            'number_of_cage'=>random_int(5,100),
-            'user_id' => 1
+            'number_of_pallet' => random_int(5, 100),
+            'number_of_cage' => random_int(5, 100),
+            'user_id' => 1,
         ];
     }
 }
