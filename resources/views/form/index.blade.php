@@ -28,6 +28,11 @@
                 <img src="<?php echo '../../img/full_logo_inverse.svg' ?>" class="img-fluid mb-3">
                 <h3>Please fill out this form</h3>
             </div>
+
+            <div id="mapholder"></div>
+            <form>
+                <input type="button" onclick="getLocation();" value="Your Location" />
+            </form>
             <h5>Your current location is: <span class="location"></span></h5>
 
             <div class="form-group row">
@@ -127,6 +132,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://unpkg.com/haversine@1.1.0/haversine.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+        defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.min.js"
         integrity="sha512-Atu8sttM7mNNMon28+GHxLdz4Xo2APm1WVHwiLW9gW4bmHpHc/E2IbXrj98SmefTmbqbUTOztKl5PDPiu0LD/A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -137,6 +147,41 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script>
+    function showLocation(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var latlongvalue = position.coords.latitude + "," +
+            position.coords.longitude;
+        var img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" +
+            latlongvalue + "&zoom=14&size = 400x300&key =
+        AIzaSyALBbUsnPXRR7Fj9OuCltCO0erujbPO5Jc ";
+        document.getElementById("mapholder").innerHTML =
+            "<img src ='" + img_url + "'>";
+    }
+
+    function errorHandler(err) {
+        if (err.code == 1) {
+            alert("Error: Access is denied!");
+        } else if (err.code == 2) {
+            alert("Error: Position is unavailable!");
+        }
+    }
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            // timeout at 60000 milliseconds (60 seconds)
+            var options = {
+                timeout: 60000
+            };
+            navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+        } else {
+            alert("Sorry, browser does not support geolocation!");
+        }
+    }
+
+
+
+
     function toggle() {
         var x = document.getElementsByClassName("load-action");
         if (x[0].style.display === "none") {
