@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Supplier;
+use App\Models\TruckType;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +20,11 @@ class LocationFactory extends Factory
     public function definition()
     {
         return [
+            'name' => $this->faker->address(),
+            'address' => $this->faker->address(),
+            'user_id' => User::first()->id,
+            'truck_type_id' => TruckType::pluck('id')->shuffle()->first(),
+            'supplier_id' => Supplier::pluck('id')->shuffle()->first(),
         ];
     }
 }

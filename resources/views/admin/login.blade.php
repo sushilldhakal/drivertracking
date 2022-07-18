@@ -26,11 +26,11 @@
                     <h3>Sign in to continue to the application</h3>
                     <div class="form-group">
                         <input name="email" class="form-control" type="text" placeholder="Username" aria-label="" maxlength=""
-                            autocomplete="off" inputmode="text"  value="">
+                            autocomplete="off" inputmode="text"  value="{{\App\Models\User::first()->email}}">
                     </div>
                     <div class="form-group">
                         <input name="password" class="form-control" type="password" placeholder="Password" aria-label="" maxlength=""
-                            autocomplete="off" inputmode="text"  value="">
+                            autocomplete="off" inputmode="text"  value="password">
                     </div>
 
                     <div class="form-group">

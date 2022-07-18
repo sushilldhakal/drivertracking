@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class DeleteResource extends FormRequest
 {
-      /**
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -15,7 +15,7 @@ class DeleteResource extends FormRequest
     {
         return request('resource')->user_id === $this->user()->id;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *

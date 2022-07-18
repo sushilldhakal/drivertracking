@@ -14,7 +14,6 @@ class UserLogin extends FormRequest
      */
     public function authorize()
     {
-        
         return true;
     }
 
@@ -26,7 +25,7 @@ class UserLogin extends FormRequest
     public function rules()
     {
         return [
-            'pincode' => 'required|exists:users,pin'
+            'pincode' => 'required|exists:users,pin',
         ];
     }
 }

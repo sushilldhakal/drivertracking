@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
 </head>
 
@@ -60,9 +59,9 @@
                         <div class="widget-content p-0">
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
-                                    <button class="btn btn-icon font-weight-bold">
+                                    <a  href="{{route('admin.logout')}}" class="btn btn-icon font-weight-bold">
                                         <i class="fas fa-sign-out-alt"></i> Logout
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -156,10 +155,5 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
         </script>
-
-
-
-
 </body>
-
 </html>

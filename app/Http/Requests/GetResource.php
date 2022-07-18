@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Interfaces\ResourceModel;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GetResource extends FormRequest

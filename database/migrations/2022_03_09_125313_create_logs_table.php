@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('logs', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
+            $table->uuid('id')->default(\DB::raw('(UUID()) primary key'));
+            $table->string('user_id');
             $table->string('type');
             $table->string('location_id');
             $table->string('image_id');

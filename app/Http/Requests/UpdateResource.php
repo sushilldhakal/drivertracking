@@ -16,14 +16,14 @@ class UpdateResource extends FormRequest
         return request('resource')->user_id === $this->user()->id;
     }
 
-     /**
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
     public function rules()
     {
-        return ['name'=>'string','description'=>'string', 'type' => 'required|bail|in:' . implode(',',array_keys($this->setOfRules()))] + $this->pickSpecificRules($this->get('type'));
+        return ['name' => 'string', 'description' => 'string', 'type' => 'required|bail|in:'.implode(',', array_keys($this->setOfRules()))] + $this->pickSpecificRules($this->get('type'));
     }
 
     public function pickSpecificRules($type)

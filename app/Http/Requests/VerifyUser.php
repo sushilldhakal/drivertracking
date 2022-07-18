@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\UnauthorizedException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class VerifyUser extends FormRequest
@@ -21,11 +20,11 @@ class VerifyUser extends FormRequest
 
         auth()->login($user);
 
-        if (!hash_equals((string) $this->route('id'), (string) $this->user()->getKey())) {
+        if (! hash_equals((string) $this->route('id'), (string) $this->user()->getKey())) {
             return false;
         }
 
-        if (!hash_equals($this->route('hash'), sha1($this->user()->getEmailForVerification()))) {
+        if (! hash_equals($this->route('hash'), sha1($this->user()->getEmailForVerification()))) {
             return false;
         }
 
@@ -53,9 +52,10 @@ class VerifyUser extends FormRequest
      */
     public function verify()
     {
-        if (!$this->user()->hasVerifiedEmail()) {
+        if (! $this->user()->hasVerifiedEmail()) {
             $this->user()->markEmailAsVerified();
             event(new Verified($this->user()));
+
             return true;
         }
 

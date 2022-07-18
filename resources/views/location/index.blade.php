@@ -47,7 +47,7 @@
                                 <tbody>
                                     @foreach(\App\Models\Location::with(['truck_type','supplier'])->get() as $location)
                                     <tr>
-                                        <td>{{$location->id}}</td>
+                                        <td>{{$loop->iteration}}</td>
                                         <td>{{$location->name}}</td>
                                         <td>{{$location->address}}</td>
                                         <td>{{$location->truck_type?->name}}</td>
@@ -75,7 +75,7 @@
                                 <tbody>
                                     @foreach(\App\Models\TruckType::all() as $type)
                                     <tr>
-                                        <td>{{$type->id}}</td>
+                                        <td>{{$loop->iteration}}</td>
                                         <td>{{$type->name}}</td>
                                     </tr>
                                     @endforeach
@@ -98,7 +98,7 @@
                                 <tbody>
                                     @foreach(\App\Models\Supplier::all() as $type)
                                     <tr>
-                                        <td>{{$type->id}}</td>
+                                        <td>{{$loop->iteration}}</td>
                                         <td>{{$type->name}}</td>
                                     </tr>
                                     @endforeach
