@@ -32,11 +32,14 @@ class AuthController extends Controller
         if (auth()->attempt($request->only(['email', 'password'], ['is_admin' => true]))) {
             return to_route('admin.dashboard');
         }
+
         return to_route('admin.login');
     }
 
-    public function logout(){
+    public function logout()
+    {
         auth()->logout();
+
         return to_route('admin.login');
     }
 }

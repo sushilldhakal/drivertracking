@@ -111,21 +111,21 @@
                             </li>
 
                             <li>
-                                <a href="{{route('admin.driver')}}">
+                                <a href="{{route('resource.view','driver')}}">
                                     <i class="metismenu-icon pe-7s-helm"></i>
                                     Drivers Details
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{route('admin.location')}}">
+                                <a href="{{route('resource.view','location')}}">
                                     <i class="metismenu-icon pe-7s-map-marker"></i>
                                     Location Details
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{route('admin.depot')}}">
+                                <a href="{{route('resource.view','depot')}}">
                                     <i class="metismenu-icon pe-7s-map-marker"></i>
                                     Depot Details
                                 </a>
@@ -148,7 +148,7 @@
         <script type="text/javascript" src="{{ asset('js/jquery.tabledit.js') }}"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
-        </script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        @yield('scripts')
 </body>
 </html>

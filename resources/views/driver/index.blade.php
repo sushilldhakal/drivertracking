@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a class="btn btn-shadow btn-danger" href="{{route('admin.driver.new')}}">Add Drivers</a>
+                    <a class="btn btn-shadow btn-danger" href="{{route('resource.view',['driver','create'])}}">Add Drivers</a>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                                 @foreach(\App\Models\Driver::with('depot')->get() as $driver)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td><a href="{{route('admin.driver.single', [$driver->resource_type, $driver->id])}}">{{$driver->name}}</a></td>
+                                    <td><a href="{{$driver->getUrl()}}">{{$driver->name}}</a></td>
                                     <td>{{$driver->pin}}</td>
                                     <td>{{$driver->depot->name}}</td>
                                     <td>{{$driver->comments}}</td>
