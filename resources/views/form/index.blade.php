@@ -12,7 +12,9 @@
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="antialiased">
@@ -22,13 +24,21 @@
 
     <div class="app-container app-theme-grey">
         <div class="login-container p-4">
+            <div class="map-video">
+                <div id="map" style="height: 500px"></div>
 
 
-            <div class="mb-5 text-center">
-                <img src="<?php echo '../../img/full_logo_inverse.svg' ?>" class="img-fluid mb-3">
-                <h3>Please fill out this form</h3>
+
+
+                <div class="video-section">
+                    <video id="player" autoplay="true" class="video-wrapper"></video>
+                    <button id="capture" class="btn hide btn-danger">Capture</button>
+                    <br>
+                    <canvas id="snapshot"></canvas>
+
+                </div>
+
             </div>
-            <h5>Your current location is: <span class="location"></span></h5>
 
             <div class="form-group row">
                 <label class="col-md-5 col-form-label font-weight-bold">Want a break?</label>
@@ -39,13 +49,7 @@
                     </a>
                 </div>
             </div>
-            <div class="video-section">
-                <video id="player" autoplay="true" class="video-wrapper"></video>
-                <button id="capture" class="btn btn-danger">Capture</button>
-                <br>
-                <canvas id="snapshot" width=320 height=240></canvas>
 
-            </div>
 
             <form x-data="{load_type: ''}" class="needs-validation mb-3" action="{{url('resource')}}" method="post">
                 @csrf
@@ -75,7 +79,7 @@
                         <select class="form-control" required name="location_id" id="selectLocation">
                             <option value="">Select an option</option>
                             @foreach(\App\Models\Location::all() as $location)
-                                <option value="{{$location->id}}">{{$location->name}}</option>
+                            <option value="{{$location->id}}">{{$location->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -122,10 +126,13 @@
             </form>
         </div>
     </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.min.js"
         integrity="sha512-Atu8sttM7mNNMon28+GHxLdz4Xo2APm1WVHwiLW9gW4bmHpHc/E2IbXrj98SmefTmbqbUTOztKl5PDPiu0LD/A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -136,6 +143,48 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script>
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+        alert("Geolocation is not supported by this browser");
+    }
+
+    function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        getMap(latitude, longitude);
+    }
+
+    function error() {
+        alert("Unable to retrieve location");
+    }
+
+    function getMap(latitude, longitude) {
+        const map = L.map("map").setView([latitude, longitude], 16);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+        L.marker([latitude, longitude]).addTo(map);
+        var bounds = latLon.toBounds(5000); // 500 = metres
+        map.panTo(latLon).fitBounds(bounds);
+    }
+
+
+
+
+    // function getLocation() {
+    //     if (navigator.geolocation) {
+    //         // timeout at 60000 milliseconds (60 seconds)
+    //         var options = {
+    //             timeout: 60000
+    //         };
+    //         navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+    //     } else {
+    //         alert("Sorry, browser does not support geolocation!");
+    //     }
+    // }
+
+
+
+
     function toggle() {
         var x = document.getElementsByClassName("load-action");
         if (x[0].style.display === "none") {
@@ -180,54 +229,54 @@
         $("#onload").hide();
 
 
-        var $locationText = $(".location");
-        // Check for geolocation browser support and execute success method
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                geoLocationSuccess,
-                geoLocationError, {
-                    timeout: 10000
-                }
-            );
-        } else {
-            alert("your browser doesn't support geolocation");
-        }
+        // var $locationText = $(".location");
+        // // Check for geolocation browser support and execute success method
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(
+        //         geoLocationSuccess,
+        //         geoLocationError, {
+        //             timeout: 10000
+        //         }
+        //     );
+        // } else {
+        //     alert("your browser doesn't support geolocation");
+        // }
 
-        function geoLocationSuccess(pos) {
-            // get user lat,long
-            var myLat = pos.coords.latitude,
-                myLng = pos.coords.longitude,
-                loadingTimeout;
-            var loading = function() {
-                $locationText.text("fetching...");
-            };
-            loadingTimeout = setTimeout(loading, 600);
-            var request = $.get(
-                    "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
-                    myLat +
-                    "&lon=" +
-                    myLng
-                )
-                .done(function(data) {
-                    if (loadingTimeout) {
-                        clearTimeout(loadingTimeout);
-                        loadingTimeout = null;
-                        $locationText.text(data.display_name);
-                    }
-                })
-                .fail(function() {
-                    // handle error
-                });
-        }
+        // function geoLocationSuccess(pos) {
+        //     // get user lat,long
+        //     var myLat = pos.coords.latitude,
+        //         myLng = pos.coords.longitude,
+        //         loadingTimeout;
+        //     var loading = function() {
+        //         $locationText.text("fetching...");
+        //     };
+        //     loadingTimeout = setTimeout(loading, 600);
+        //     var request = $.get(
+        //             "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
+        //             myLat +
+        //             "&lon=" +
+        //             myLng
+        //         )
+        //         .done(function(data) {
+        //             if (loadingTimeout) {
+        //                 clearTimeout(loadingTimeout);
+        //                 loadingTimeout = null;
+        //                 $locationText.text(data.display_name);
+        //             }
+        //         })
+        //         .fail(function() {
+        //             // handle error
+        //         });
+        // }
 
-        function geoLocationError(error) {
-            var errors = {
-                1: "Permission denied",
-                2: "Position unavailable",
-                3: "Request timeout"
-            };
-            alert("Error: " + errors[error.code]);
-        }
+        // function geoLocationError(error) {
+        //     var errors = {
+        //         1: "Permission denied",
+        //         2: "Position unavailable",
+        //         3: "Request timeout"
+        //     };
+        //     alert("Error: " + errors[error.code]);
+        // }
     });
     </script>
 </body>

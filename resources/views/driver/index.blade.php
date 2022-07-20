@@ -8,7 +8,7 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-helm icon-gradient bg-love-kiss">
+                        <i class="pe-7s-car icon-gradient bg-love-kiss">
                         </i>
                     </div>
                     <div>
