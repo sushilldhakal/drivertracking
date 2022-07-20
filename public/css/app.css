@@ -103,12 +103,35 @@
 .main-logo {
     width: 70px;
 }
+#map {
+    overflow: hidden;
+    pointer-events: none;
+}
+.map-video {
+    position: relative;
+}
+.video-section {
+    position: absolute;
+    bottom: 10px;
+    z-index: 1111;
+}
+.hide{
+    display:none;
+}
+.leaflet-pane.leaflet-map-pane {
+    transform: translate3d(2.66016px, -130.074px, 0px) !important;
+}
+#player{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
 
 @media (max-width: 768px) {
-    .video-wrapper {
+    .video-wrapper,.video-section canvas,#player {
         width: 100%;
     }
-    .video-section canvas {
-        width: 100%;
-    }
+    
 }
