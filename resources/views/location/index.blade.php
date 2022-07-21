@@ -1,10 +1,6 @@
 @extends('admin')
 
 @section('content')
-
-@if($errors->any())
-{{dd($errors->all())}}
-@endif
 <div class="app-main__outer">
     <div class="app-main__inner">
         <div class="app-page-title">

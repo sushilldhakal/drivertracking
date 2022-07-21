@@ -4,13 +4,9 @@ namespace App\Models;
 
 class Driver extends Base
 {
-    public $incrementing = false;
-
-    protected $keyType = 'string';
-
     public $casts = [
-        'is_admin'=>'bool',
-        'break'=>'bool',
+        'is_admin' => 'bool',
+        'break' => 'bool',
     ];
 
     public $fillable = [
@@ -25,8 +21,6 @@ class Driver extends Base
     ];
 
     public $table = 'users';
-
-    public $resource_type = 'driver';
 
     protected static function booted()
     {

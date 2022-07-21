@@ -29,7 +29,7 @@
                     <div class="card-content ">
                         <form class="form w-100" method="POST" action="{{route('resource.store')}}">
                             @csrf
-                            <input type="hidden" name="redirect_url" value="{{route('admin.driver')}}">
+                            <input type="hidden" name="redirect_url" value="{{route('resource.view',['driver'])}}">
                             <input type="hidden" name="resource_type" value="driver">
                             <div class="modal-header">
                                 <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Drivers</h5>
@@ -89,10 +89,7 @@
 
                                     <div class="col-md-4">
                                         <label>Select Image</label>
-                                        <input type="file" id="file-input" class="form-control">
-                                        <div id="img_contain">
-                                            <img id="image-preview" src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png" alt="your image" title='' />
-                                        </div>
+                                        @include('components.file-upload', ['resource' => new \App\Models\Driver])
                                     </div>
                                 </div>
 

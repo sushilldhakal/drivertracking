@@ -30,15 +30,12 @@ Route::prefix('admin')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::resource('resource', 'ResourceController');
         Route::view('/', 'dashboard.index')->name('admin.dashboard');
-        Route::view('/driver', 'driver.index')->name('admin.driver');
-        Route::view('/driver/new', 'driver.new')->name('admin.driver.new');
-        Route::view('/location', 'location.index')->name('admin.location');
-        Route::view('/depot', 'depot.index')->name('admin.depot');
+        Route::get('/{resource_type}/{resource_action?}/{resource?}', 'ResourceController@view')->name('resource.view');
         Route::view('/search', 'search.index')->name('admin.search');
-        Route::view('/resource/{resource_type}/{resource}', 'driver.single')->name('admin.driver.single');
     });
 });
 
+Route::post('/file/upload/{resource_type}/{resource?}', 'MediaController@upload')->name('upload');
 Route::post('punch-in', 'AuthController@punchIn')->name('punch-in');
 
 // Route::view('/','Pin.index');

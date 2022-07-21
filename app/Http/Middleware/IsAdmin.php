@@ -20,6 +20,7 @@ class IsAdmin
             return $next($request);
         }
         auth()->logout();
+
         return redirect('/admin/login');
     }
 }

@@ -15,4 +15,14 @@ abstract class Base extends Model implements ResourceModel
     protected $keyType = 'string';
 
     public $incrementing = false;
+
+    public function getUrl()
+    {
+        return route('resource.view', [$this->resource_type, 'view', $this->id]);
+    }
+
+    public function getResourceTypeAttribute()
+    {
+        return class_basename($this);
+    }
 }
