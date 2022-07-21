@@ -45,13 +45,6 @@ class ResourceController extends Controller
         return back()->with('success', 'Resource has been created.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateResource $request, ResourceModel $model)
     {
         $model->update($request->validated());
@@ -59,12 +52,6 @@ class ResourceController extends Controller
         return ['message' => 'Resource updated successfully', 'resource' => $model];
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(DeleteResource $request, ResourceModel $model)
     {
         $model->delete();
