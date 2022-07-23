@@ -15,4 +15,9 @@ class Depot extends Base
     {
         return $this->belongsTo(Location::class);
     }
+
+    public function canBeCreatedBy(User $user): bool
+    {
+        return $user->is_admin;
+    }
 }

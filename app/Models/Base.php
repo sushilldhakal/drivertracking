@@ -31,13 +31,9 @@ abstract class Base extends Model implements ResourceModel
     {
         $uuid = implode('/', ['images', $this->resource_type, uniqid('image_').'.png']);
 
-        Storage::disk('local')->put($uuid, base64_decode($image));
-
-        $this->image_id = $uuid;
-
         $base64_image = $image;
 
-        [$type, $file_data] = explode(';', $base64_image);
+        [, $file_data] = explode(';', $base64_image);
         [, $file_data] = explode(',', $file_data);
 
         Storage::disk('local')->put($uuid, base64_decode($file_data));

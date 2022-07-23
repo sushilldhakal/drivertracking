@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DeleteResource;
 use App\Http\Requests\StoreResource;
 use App\Http\Requests\UpdateResource;
+use App\Http\Requests\ViewRequest;
 use App\Interfaces\ResourceModel;
 
 class ResourceController extends Controller
 {
-    public function view($resourceType, $resourceAction = 'index', ResourceModel $model = null)
+    public function view(ViewRequest $request, $resourceType, $resourceAction = 'index', ResourceModel $model = null)
     {
         $view = [$resourceType];
 

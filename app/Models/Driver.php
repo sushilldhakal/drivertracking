@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Driver extends Base
+use App\Interfaces\ResourceModel;
+
+class Driver extends Base implements ResourceModel
 {
     public $casts = [
         'is_admin' => 'bool',
@@ -33,4 +35,9 @@ class Driver extends Base
     {
         return $this->belongsTo(Depot::class, 'depo_id', 'id')->withDefault(new Depot);
     }
+
+    public $rules = [
+        'create' => [
+        ],
+    ];
 }
