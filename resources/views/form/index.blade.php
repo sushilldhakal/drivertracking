@@ -23,7 +23,7 @@
     </div>
 
     <div class="app-container app-theme-grey">
-        <div class="login-container p-4">
+        <div class="login-container p-2 driver-clockin">
             <div class="map-video">
                 <div id="map" style="height: 500px"></div>
 
@@ -39,98 +39,105 @@
                 </div>
 
             </div>
+            <div class="driver-form-section">
+                <form x-data="{load_type: ''}" class="needs-validation mb-3" action="{{url('resource')}}" method="post">
+                    @csrf
+                    <input type="hidden" name="image" value="{{old('image')}}">
+                    <input type="hidden" name="resource_type" value="log">
+                    <div class="form-group row">
+                        <div class="clockin-design">
+                            <div class="form-check form-check-inline selecotr-item">
+                                <input class="form-check-input selector-item_radio" type="radio" name="type"
+                                    @checked(old('type')=='arrived' ) id="inlineRadio3" required value="arrived"
+                                    checked>
+                                <label class="form-check-label selector-item_label" for="inlineRadio3">ARRIVED</label>
+                            </div>
+                            <div class="form-check form-check-inline selecotr-item">
+                                <a class="btn break-button btn-toggle selector-item_label" href="{{url('/break')}}">
+                                    <span class="d-show">BREAK</span>
+                                </a>
+                            </div>
+                            <div class="form-check form-check-inline selecotr-item">
+                                <input class="form-check-input selector-item_radio" type="radio" name="type"
+                                    @checked(old('type')=='depart' ) id="inlineRadio4" required value="depart">
+                                <label class="form-check-label selector-item_label" for="inlineRadio4">DEPART</label>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="form-group row">
-                <label class="col-md-5 col-form-label font-weight-bold">Want a break?</label>
+                    <div class="form-group row">
+                        <label class="col-md-5 col-form-label font-weight-bold">Select Location</label>
 
-                <div class="col-md-7">
-                    <a class="btn btn-danger btn-lg btn-toggle" href="{{url('/break')}}">
-                        <span class="d-show">Take a break</span>
-                    </a>
-                </div>
+                        <div class="col-md-7">
+                            <div class="picker">
+                                <div class="picker-window"></div>
+                                <div class="triangle"></div>
+                                <ul class="picker-day">
+                                    @foreach(\App\Models\Location::all() as $location)
+                                    <li value="{{$location->id}}">{{$location->name}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <select class="form-control" required name="location_id" id="selectLocation">
+                                <option value="">Select an option</option>
+                                @foreach(\App\Models\Location::all() as $location)
+                                <option value="{{$location->id}}">{{$location->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-5 col-form-label font-weight-bold">Load/Unload</label>
+
+                        <div class="col-md-7">
+                            <div class="form-check form-check-inline">
+                                <input x-model="load_type" class="form-check-input" type="radio" name="load_type"
+                                    id="inlineRadio1" required value="Load">
+                                <label class="form-check-label" for="inlineRadio1">Load</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input x-model="load_type" class="form-check-input" type="radio" name="load_type"
+                                    id="inlineRadio2" required value="Unload">
+                                <label class="form-check-label" for="inlineRadio2">Unload</label>
+                            </div>
+                        </div>
+                    </div>
+                    <template x-if="load_type">
+                        <div class="load-action">
+                            <div class="form-group row">
+                                <label class="col-md-5 col-form-label font-weight-bold">Cage</label>
+
+                                <div class="col-md-7">
+                                    <input type="number" class="form-control" id="validationCustom01" min='1' value="0"
+                                        name="cage" placeholder="Number of load cage" required="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-5 col-form-label font-weight-bold">Pallet</label>
+
+                                <div class="col-md-7">
+                                    <input type="number" class="form-control" id="validationCustom01" min='1' value="0"
+                                        name="pallet" placeholder="Number of load palette" required="">
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <input type="submit" onclick="return checkIfAllOk()" class="btn btn-danger" value="Submit">
+                </form>
             </div>
 
 
-            <form x-data="{load_type: ''}" class="needs-validation mb-3" action="{{url('resource')}}" method="post">
-                @csrf
-                <input type="hidden" name="image" value="{{old('image')}}">
-                <input type="hidden" name="resource_type" value="log">
-                <div class="form-group row">
-                    <label class="col-md-5 col-form-label font-weight-bold">Arrived or Depart?</label>
 
-                    <div class="col-md-7">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="type" @checked(old('type')=='arrived' )
-                                id="inlineRadio3" required value="arrived">
-                            <label class="form-check-label" for="inlineRadio3">Arived</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="type" @checked(old('type')=='depart' )
-                                id="inlineRadio4" required value="depart">
-                            <label class="form-check-label" for="inlineRadio4">Depart</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-md-5 col-form-label font-weight-bold">Select Location</label>
-
-                    <div class="col-md-7">
-                        <select class="form-control" required name="location_id" id="selectLocation">
-                            <option value="">Select an option</option>
-                            @foreach(\App\Models\Location::all() as $location)
-                            <option value="{{$location->id}}">{{$location->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-md-5 col-form-label font-weight-bold">Load/Unload</label>
-
-                    <div class="col-md-7">
-                        <div class="form-check form-check-inline">
-                            <input x-model="load_type" class="form-check-input" type="radio" name="load_type"
-                                id="inlineRadio1" required value="Load">
-                            <label class="form-check-label" for="inlineRadio1">Load</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input x-model="load_type" class="form-check-input" type="radio" name="load_type"
-                                id="inlineRadio2" required value="Unload">
-                            <label class="form-check-label" for="inlineRadio2">Unload</label>
-                        </div>
-                    </div>
-                </div>
-                <template x-if="load_type">
-                    <div class="load-action">
-                        <div class="form-group row">
-                            <label class="col-md-5 col-form-label font-weight-bold">Load Cage</label>
-
-                            <div class="col-md-7">
-                                <input type="number" class="form-control" id="validationCustom01" min='1' value="0"
-                                    name="cage" placeholder="Number of load cage" required="">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-md-5 col-form-label font-weight-bold">Load Pallet</label>
-
-                            <div class="col-md-7">
-                                <input type="number" class="form-control" id="validationCustom01" min='1' value="0"
-                                    name="pallet" placeholder="Number of load palette" required="">
-                            </div>
-                        </div>
-                    </div>
-                </template>
-                <input type="submit" onclick="return checkIfAllOk()" class="btn btn-danger" value="Submit">
-            </form>
         </div>
     </div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.min.js"
@@ -158,32 +165,17 @@
     function error() {
         alert("Unable to retrieve location");
     }
+    const myIcon = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png',
+    });
 
     function getMap(latitude, longitude) {
         const map = L.map("map").setView([latitude, longitude], 16);
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
-        L.marker([latitude, longitude]).addTo(map);
-        var bounds = latLon.toBounds(5000); // 500 = metres
-        map.panTo(latLon).fitBounds(bounds);
+        L.marker([latitude, longitude], {
+            icon: myIcon
+        }).addTo(map);
     }
-
-
-
-
-    // function getLocation() {
-    //     if (navigator.geolocation) {
-    //         // timeout at 60000 milliseconds (60 seconds)
-    //         var options = {
-    //             timeout: 60000
-    //         };
-    //         navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
-    //     } else {
-    //         alert("Sorry, browser does not support geolocation!");
-    //     }
-    // }
-
-
-
 
     function toggle() {
         var x = document.getElementsByClassName("load-action");
@@ -209,6 +201,10 @@
         // Attach the video stream to the video element and autoplay.
         player.srcObject = stream;
     };
+
+    function handleVideo(stream) {
+        video.src = window.URL.createObjectURL(stream);
+    }
     captureButton.addEventListener("click", function() {
         var context = snapshot.getContext("2d");
         // Draw the video frame to the canvas.
@@ -224,59 +220,11 @@
     navigator.mediaDevices.getUserMedia({
         video: true
     }).then(handleSuccess);
-    $(document).ready(function() {
 
+
+    $(document).ready(function() {
         $("#onload").hide();
 
-
-        // var $locationText = $(".location");
-        // // Check for geolocation browser support and execute success method
-        // if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition(
-        //         geoLocationSuccess,
-        //         geoLocationError, {
-        //             timeout: 10000
-        //         }
-        //     );
-        // } else {
-        //     alert("your browser doesn't support geolocation");
-        // }
-
-        // function geoLocationSuccess(pos) {
-        //     // get user lat,long
-        //     var myLat = pos.coords.latitude,
-        //         myLng = pos.coords.longitude,
-        //         loadingTimeout;
-        //     var loading = function() {
-        //         $locationText.text("fetching...");
-        //     };
-        //     loadingTimeout = setTimeout(loading, 600);
-        //     var request = $.get(
-        //             "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
-        //             myLat +
-        //             "&lon=" +
-        //             myLng
-        //         )
-        //         .done(function(data) {
-        //             if (loadingTimeout) {
-        //                 clearTimeout(loadingTimeout);
-        //                 loadingTimeout = null;
-        //                 $locationText.text(data.display_name);
-        //             }
-        //         })
-        //         .fail(function() {
-        //             // handle error
-        //         });
-        // }
-
-        // function geoLocationError(error) {
-        //     var errors = {
-        //         1: "Permission denied",
-        //         2: "Position unavailable",
-        //         3: "Request timeout"
-        //     };
-        //     alert("Error: " + errors[error.code]);
-        // }
     });
     </script>
 </body>
