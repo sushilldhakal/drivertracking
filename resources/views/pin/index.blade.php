@@ -69,13 +69,10 @@
             setInterval(doDate, 1000);
 
             doDate();
-
-
-
         });
 
         @if ($errors->any())
-            alert('Invalid Pin')    
+            alert('Invalid Pin')
         @endif
     </script>
 </body>
