@@ -63,71 +63,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Date Range Search</h5>
                     <div class="card-content">
-                        <!-- <table id="searchDateRange" class="table" data-id-field="code" data-sort-name="value1"
-                            data-sort-order="desc" data-show-chart="false" data-pagination="false"
-                            data-show-pagination-switch="false">
-                            <thead>
-                                <tr>
-                                    <th size="5">Date</th>
-                                    <th> Driver Name</th>
-                                    <th>Start Time</th>
-                                    <th>End Time</th>
-                                    <th>Break</th>
-                                    <th>Total Hours</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>14 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
-                                    <td>8:00am</td>
-                                    <td>5:00pm</td>
-                                    <td>30min</td>
-                                    <td>8.5hrs</td>
-                                </tr>
-                                <tr>
-                                    <td>15 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Suman Shrestha</a></td>
-                                    <td>8:00am</td>
-                                    <td>5:00pm</td>
-                                    <td>30min</td>
-                                    <td>8.5hrs</td>
-                                </tr>
-                                <tr>
-                                    <td>16 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
-                                    <td>8:00am</td>
-                                    <td>5:00pm</td>
-                                    <td>30min</td>
-                                    <td>8.5hrs</td>
-                                </tr>
-                                <tr>
-                                    <td>17 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
-                                    <td>8:00am</td>
-                                    <td>5:00pm</td>
-                                    <td>30min</td>
-                                    <td>8.5hrs</td>
-                                </tr>
-                                <tr>
-                                    <td>18 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
-                                    <td>8:00am</td>
-                                    <td>5:00pm</td>
-                                    <td>30min</td>
-                                    <td>8.5hrs</td>
-                                </tr>
-                                <tr>
-                                    <td>19 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil Dhakal</a></td>
-                                    <td>8:00am</td>
-                                    <td>5:00pm</td>
-                                    <td>30min</td>
-                                    <td>8.5hrs</td>
-                                </tr>
-
-                            </tbody>
-                        </table> -->
 
                         <table id="searchDateRange" class="table" data-id-field="code" data-sort-name="value1"
                             data-sort-order="desc" data-show-chart="false" data-pagination="false"
@@ -256,10 +191,9 @@
                             <tbody>
                                 <tr>
                                     <td>14 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
+                                    <td> <a href="">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
-
                                     <td>50/0</td>
                                     <td>0/0</td>
                                     <td>2hrs</td>
@@ -267,7 +201,7 @@
                                 </tr>
                                 <tr>
                                     <td>15 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Suman</a></td>
+                                    <td> <a href="">Suman</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -277,7 +211,7 @@
                                 </tr>
                                 <tr>
                                     <td>16 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
+                                    <td> <a href="">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -287,7 +221,7 @@
                                 </tr>
                                 <tr>
                                     <td>17 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
+                                    <td> <a href="">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -297,7 +231,7 @@
                                 </tr>
                                 <tr>
                                     <td>18 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
+                                    <td> <a href="">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
@@ -307,7 +241,7 @@
                                 </tr>
                                 <tr>
                                     <td>19 Jan 2022</td>
-                                    <td> <a href="{{route('admin.driver.single')}}">Sushil</a></td>
+                                    <td> <a href="">Sushil</a></td>
                                     <td>8:00am</td>
                                     <td>10:00am</td>
 
