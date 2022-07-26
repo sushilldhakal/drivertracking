@@ -38,6 +38,20 @@ class Driver extends Base implements ResourceModel
 
     public $rules = [
         'create' => [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'date_of_birth' => 'required',
+            'comments' => 'required',
+            'depo_id' => 'required',
         ],
+        'update' => [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'date_of_birth' => 'required',
+            'comments' => 'required',
+            'depo_id' => 'required',
+        ]
     ];
 }

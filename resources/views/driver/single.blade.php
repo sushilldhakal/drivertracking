@@ -12,6 +12,7 @@
                         </i>
                     </div>
                     <div>
+                        Drivers
                         <div class="page-title-subheading">
                             All drivers associated with 4th Dimension
                         </div>
@@ -21,25 +22,82 @@
         </div>
 
         <div class="">
-            <div class="main-card mb-3 card">
+            <div class="main-card mb-3 card col-8">
                 <div class="card-body">
-                    <h5 class="card-title">{{request('resource')->name}}</h5>
-                    <div class="card-content">
-                        <table id="singledriverTable" class="table" data-id-field="code" data-sort-name="value1"
-                            data-sort-order="desc" data-show-chart="false" data-pagination="false"
-                            data-show-pagination-switch="false">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <!-- <th>Id</th> -->
-                                    <th>Date</th>
-                                    <th>Start Time</th>
-                                    <th>End Time</th>
-                                    <th>Break</th>
-                                    <th>Total Hours</th>
-                                </tr>
-                            </thead>
-                        </table>
+                    <h5 class="card-title">Driver - <span class="text-sm">{{$driver->name}}</span></h5>
+                    <div class="card-content ">
+                        @foreach($errors->all() as $error)
+                            {{$error}}
+                        @endforeach
+                        <form class="form w-100" method="POST" action="{{route('resource.update', $driver)}}">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="redirect_url" value="{{route('resource.view',['driver'])}}">
+                            <input type="hidden" name="resource_type" value="driver">
+                            <input type="hidden" name="action" value="update">
+                            <div class="modal-body">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Full Name</label>
+                                        <input type="text" name="name" value="{{old('name', $driver->name)}}" class="form-control" placeholder="Driver's full name" required="">
+                                    </div>
+
+                                    <div class="col-md-6 relative-class">
+                                        <label>Pin Number</label>
+                                        <!-- <input type="number" class="form-control" placeholder="Generate Pin" required=""> -->
+                                        <input id="formGridPin"  minlength="4" type="number" name="pin" value="{{old('pin', $driver->pin)}}" class="form-control @error('pin')) border border-danger @enderror" value="" placeholder="PIN" maxLength="4" minLength="4" />
+                                        @error('pin'))<p class="text text-danger">{{$message}}</p>@enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label>Email Address</label>
+                                        <input type="text" class="form-control @error('email')) border border-danger @enderror" name="email" value="{{old('email', $driver->email)}}" placeholder="Driver's email address" required="">
+                                        @error('email'))<p class="text text-danger">{{$message}}</p>@enderror
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Phone Number</label>
+                                        <input type="text" class="form-control" name="phone" value="{{old('phone', $driver->phone)}}" placeholder="Driver's contact number" required="">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>DOB</label>
+                                        <input type="date" name="date_of_birth" value="{{old('date_of_birth', $driver->date_of_birth)}}" class="form-control" placeholder="Driver's date of birth" required="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <div class="col-md-4">
+                                        <label>Comments</label>
+                                        <textarea class="form-control" name="comments"  rows=" 3" placeholder="Comments">{{old('comments', $driver->comments)}}</textarea>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Depo</label>
+                                        <select name="depo_id" class="mb-2 form-control">
+                                            <option value="">Select Depo</option>
+                                            @foreach(\App\Models\Depot::all() as $type)
+                                            <option @selected($type->id == old('depo_id', $driver->depo_id)) value="{{$type->id}}">{{$type->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Select Image</label>
+                                        @include('components.file-upload', ['resource' => new \App\Models\Driver])
+                                    </div>
+                                </div>
+
+                            </div>
+                            @can('update', $driver)
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary btn-lg">Update</button>
+                            </div>
+                            @endcan
+                        </form>
                     </div>
                 </div>
             </div>

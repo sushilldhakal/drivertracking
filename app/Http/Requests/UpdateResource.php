@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Interfaces\ResourceModel;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateResource extends FormRequest
@@ -11,9 +12,9 @@ class UpdateResource extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(ResourceModel $model)
     {
-        return request('resource')->user_id === $this->user()->id;
+        return $this->user()->can($this->get('action'), $model);
     }
 
     /**
@@ -21,19 +22,8 @@ class UpdateResource extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(ResourceModel $model)
     {
-        return ['name' => 'string', 'description' => 'string', 'type' => 'required|bail|in:'.implode(',', array_keys($this->setOfRules()))] + $this->pickSpecificRules($this->get('type'));
-    }
-
-    public function pickSpecificRules($type)
-    {
-        return $this->setOfRules()[$type] ?? [];
-    }
-
-    public function setOfRules()
-    {
-        return [
-        ];
+        return ['action' => 'required|bail', 'resource_type' => 'required|bail|in:' . $model->resource_type] + ($model->rules[$this->get('action')] ?? []);
     }
 }

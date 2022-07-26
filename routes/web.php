@@ -17,8 +17,8 @@ Route::prefix('admin')->group(function () {
     Route::post('login', 'AuthController@adminLogin')->name('admin.login.post');
 
     Route::middleware('admin')->group(function () {
-        Route::resource('resource', 'ResourceController');
         Route::view('/', 'dashboard.index')->name('admin.dashboard');
+        Route::resource('resource', 'ResourceController');
         Route::get('/{resource_type}/{resource_action?}/{resource?}', 'ResourceController@view')->name('resource.view');
         Route::view('/search', 'search.index')->name('admin.search');
     });
