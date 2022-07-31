@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Interfaces\ResourceModel;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,5 +34,7 @@ class AppServiceProvider extends ServiceProvider
                 $query->time
             );
         });
+        
+        URL::forceSchema('https');
     }
 }
