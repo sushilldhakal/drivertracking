@@ -4,12 +4,17 @@
 <head>
     <base href="../">
     <meta charset="utf-8">
+    <!-- PWA  -->
+    <meta name="Timesheet" content="#6777ef" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Dashboard</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <link href="{{ asset('css/base.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
@@ -59,7 +64,7 @@
                         <div class="widget-content p-0">
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
-                                    <a  href="{{route('admin.logout')}}" class="btn btn-icon font-weight-bold">
+                                    <a href="{{route('admin.logout')}}" class="btn btn-icon font-weight-bold">
                                         <i class="fas fa-sign-out-alt"></i> Logout
                                     </a>
                                 </div>
@@ -153,7 +158,18 @@
         <script type="text/javascript" src="{{ asset('js/jquery.tabledit.js') }}"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js">
+        </script>
         @yield('scripts')
+
+        <script src="{{ asset('/sw.js') }}"></script>
+        <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function(reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+        </script>
 </body>
+
 </html>
