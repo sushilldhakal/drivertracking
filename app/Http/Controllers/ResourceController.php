@@ -31,7 +31,7 @@ class ResourceController extends Controller
      */
     public function store(StoreResource $request, ResourceModel $model)
     {
-        abort_if(!$model->fillable, 500, 'Add fillable property in model:' . $model->class_alias);
+        abort_if(! $model->fillable, 500, 'Add fillable property in model:'.$model->class_alias);
 
         $model->user_id = auth()->id();
 

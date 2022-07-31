@@ -16,7 +16,7 @@ Route::prefix('admin')->group(function () {
     Route::view('login', 'admin.login')->name('admin.login');
     Route::post('login', 'AuthController@adminLogin')->name('admin.login.post');
 
-    Route::middleware(['admin','data-wrapper'])->group(function () {
+    Route::middleware(['admin', 'data-wrapper'])->group(function () {
         Route::view('/', 'dashboard.index')->name('admin.dashboard');
         Route::resource('resource', 'ResourceController');
         Route::view('/search', 'search.index')->name('admin.search');

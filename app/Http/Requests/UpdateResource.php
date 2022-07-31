@@ -24,6 +24,6 @@ class UpdateResource extends FormRequest
      */
     public function rules(ResourceModel $model)
     {
-        return ['action' => 'required|bail', 'resource_type' => 'required|bail|in:' . $model->resource_type] + ($model->rules[$this->get('action')] ?? []);
+        return ['action' => 'required|bail', 'resource_type' => 'required|bail|in:'.$model->resource_type] + ($model->rules[$this->get('action')] ?? []);
     }
 }
