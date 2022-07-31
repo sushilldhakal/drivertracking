@@ -5,7 +5,7 @@ return [
     'manifest' => [
         'name' => env('APP_NAME', 'My PWA App'),
         'short_name' => 'PWA',
-        'start_url' => 'http://127.0.0.1:8000/',
+        'start_url' => 'https://drivertrack.herokuapp.com/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
         'display' => 'standalone',
