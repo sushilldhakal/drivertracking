@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ResourceModel::class, function ($app) {
-            return $app->make(config('resource.types')[request('resource_type')]);
+            return $app->make(config('resource.types')[strtolower(request('resource_type'))]);
         });
     }
 
@@ -26,6 +26,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \DB::listen(function($query) {
+            \Log::info(
+                $query->sql,
+                $query->bindings,
+                $query->time
+            );
+        });
     }
 }

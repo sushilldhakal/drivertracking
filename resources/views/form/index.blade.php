@@ -23,7 +23,7 @@
     </div>
 
     <div class="app-container app-theme-grey">
-        <div class="login-container p-2 driver-clockin">
+        <div class="login-container driver-clockin">
             <div class="map-video">
                 <div id="map" style="height: 500px"></div>
 
@@ -64,67 +64,55 @@
                             </div>
                         </div>
                     </div>
+                    <div class="p-3">
+                        <div class="form-group row">
+                            <label class="col-md-5 col-form-label font-weight-bold">SELECT LOCATION</label>
 
-                    <div class="form-group row">
-                        <label class="col-md-5 col-form-label font-weight-bold">Select Location</label>
-
-                        <div class="col-md-7">
-                            <div class="picker">
-                                <div class="picker-window"></div>
-                                <div class="triangle"></div>
-                                <ul class="picker-day">
+                            <div class="col-md-7">
+                                <select class="form-control" required name="location_id" id="selectLocation">
+                                    <option value="">Select an option</option>
                                     @foreach(\App\Models\Location::all() as $location)
-                                    <li value="{{$location->id}}">{{$location->name}}</li>
+                                    <option value="{{$location->id}}">{{$location->name}}</option>
                                     @endforeach
-                                </ul>
-                            </div>
-                            <select class="form-control" required name="location_id" id="selectLocation">
-                                <option value="">Select an option</option>
-                                @foreach(\App\Models\Location::all() as $location)
-                                <option value="{{$location->id}}">{{$location->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-md-5 col-form-label font-weight-bold">Load/Unload</label>
-
-                        <div class="col-md-7">
-                            <div class="form-check form-check-inline">
-                                <input x-model="load_type" class="form-check-input" type="radio" name="load_type"
-                                    id="inlineRadio1" required value="Load">
-                                <label class="form-check-label" for="inlineRadio1">Load</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input x-model="load_type" class="form-check-input" type="radio" name="load_type"
-                                    id="inlineRadio2" required value="Unload">
-                                <label class="form-check-label" for="inlineRadio2">Unload</label>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                    <template x-if="load_type">
-                        <div class="load-action">
-                            <div class="form-group row">
-                                <label class="col-md-5 col-form-label font-weight-bold">Cage</label>
-
-                                <div class="col-md-7">
-                                    <input type="number" class="form-control" id="validationCustom01" min='1' value="0"
-                                        name="cage" placeholder="Number of load cage" required="">
-                                </div>
+                        <div class="form-group row">
+                            <div class="col-5">
+                                <label class="col-form-label font-weight-bold">LOAD/UNLOAD</label>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="col-md-5 col-form-label font-weight-bold">Pallet</label>
-
-                                <div class="col-md-7">
-                                    <input type="number" class="form-control" id="validationCustom01" min='1' value="0"
-                                        name="pallet" placeholder="Number of load palette" required="">
+                            <div class="col-7">
+                                <div class="switch-field">
+                                    <input x-model="load_type" type="radio" id="radio-one" name="load_type" value="Load"
+                                        checked />
+                                    <label for="radio-one">LOAD</label>
+                                    <input x-model="load_type" type="radio" id="radio-two" name="unload_type"
+                                        value="unload" />
+                                    <label for="radio-two"> UNLOAD</label>
                                 </div>
                             </div>
                         </div>
-                    </template>
-                    <input type="submit" onclick="return checkIfAllOk()" class="btn btn-danger" value="Submit">
+                        <template x-if="load_type">
+                            <div class="load-action row">
+                                <div class="form-group col-6">
+                                    <label class=" col-form-label font-weight-bold"> CAGE</label>
+                                    <div class="">
+                                        <input type="number" class="form-control" id="validationCustom01" min='1'
+                                            value="0" name="cage" placeholder="Number of load cage" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="col-form-label font-weight-bold"> PALLET</label>
+                                    <div class="">
+                                        <input type="number" class="form-control" id="validationCustom01" min='1'
+                                            value="0" name="pallet" placeholder="Number of load palette" required="">
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <input type="submit" onclick="return checkIfAllOk()" class="btn btn-danger" value="Submit">
+                    </div>
                 </form>
             </div>
 
