@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Interfaces\ResourceModel;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -25,7 +24,6 @@ class DataWrapper
         if ($request->has('redirect_url')) {
             return redirect($request->get('redirect_url'));
         }
-
         if ($request->has('redirect_route_url')) {
             return redirect($request->get('redirect_route_url'), ['view', $request->route('resource')]);
         }

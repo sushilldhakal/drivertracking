@@ -52,6 +52,6 @@ class Driver extends Base implements ResourceModel
             'date_of_birth' => 'required',
             'comments' => 'required',
             'depo_id' => 'required',
-        ]
+        ],
     ];
 }
