@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Interfaces\ResourceModel;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreResource extends FormRequest
+class ViewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,16 +14,18 @@ class StoreResource extends FormRequest
      */
     public function authorize(ResourceModel $model)
     {
-        return $this->user()->can($this->get('action'), $model);
+        return $this->user()->can($this->resource_action, $this->route('resource') ?? $model);
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function rules(ResourceModel $model)
+    public function rules()
     {
-        return ['action' => 'required|bail', 'resource_type' => 'required|bail|in:'.$model->resource_type] + ($model->rules[$this->get('action')] ?? []);
+        return [
+            //
+        ];
     }
 }

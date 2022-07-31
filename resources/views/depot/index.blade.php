@@ -1,9 +1,6 @@
 @extends('admin')
 
 @section('content')
-@if($errors->any())
-{{dd($errors->all())}}
-@endif
 <div class="app-main__outer">
     <div class="app-main__inner">
         <div class="app-page-title">
@@ -21,7 +18,9 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
+                    @can('create', new \App\Models\Depot)
                     <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addDepot">Add Depot</button>
+                    @endcan
                 </div>
             </div>
         </div>
@@ -88,6 +87,8 @@
             <form class="form w-100" method="POST" action="{{route('resource.store')}}">
                 @csrf
                 <input type="hidden" name="resource_type" value="depot">
+                <input type="hidden" name="action" value="create">
+                <input type="hidden" name="redirect_url" value="/admin/depot">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Depot</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

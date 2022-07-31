@@ -19,7 +19,9 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
+                    @can('create', new \App\Models\Driver)
                     <a class="btn btn-shadow btn-danger" href="{{route('resource.view',['driver','create'])}}">Add Drivers</a>
+                    @endcan
                 </div>
             </div>
         </div>

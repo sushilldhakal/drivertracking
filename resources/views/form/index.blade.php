@@ -26,18 +26,12 @@
         <div class="login-container driver-clockin">
             <div class="map-video">
                 <div id="map" style="height: 500px"></div>
-
-
-
-
                 <div class="video-section">
                     <video id="player" autoplay="true" class="video-wrapper"></video>
                     <button id="capture" class="btn hide btn-danger">Capture</button>
                     <br>
                     <canvas id="snapshot"></canvas>
-
                 </div>
-
             </div>
             <div class="driver-form-section">
                 <form x-data="{load_type: ''}" class="needs-validation mb-3" action="{{url('resource')}}" method="post">
@@ -108,6 +102,7 @@
                                         <input type="number" class="form-control" id="validationCustom01" min='1'
                                             value="0" name="pallet" placeholder="Number of load palette" required="">
                                     </div>
+
                                 </div>
                             </div>
                         </template>
@@ -125,9 +120,7 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.min.js"
         integrity="sha512-Atu8sttM7mNNMon28+GHxLdz4Xo2APm1WVHwiLW9gW4bmHpHc/E2IbXrj98SmefTmbqbUTOztKl5PDPiu0LD/A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -193,7 +186,8 @@
     function handleVideo(stream) {
         video.src = window.URL.createObjectURL(stream);
     }
-    captureButton.addEventListener("click", function() {
+
+    if (captureButton) captureButton.addEventListener("click", function() {
         var context = snapshot.getContext("2d");
         // Draw the video frame to the canvas.
         context.drawImage(

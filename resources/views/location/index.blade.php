@@ -18,9 +18,15 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
+                    @can('create', new \App\Models\Location)
                     <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addLocation">Add Location</button>
+                    @endcan
+                    @can('create', new \App\Models\TruckType)
                     <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addTruck">Add Truck Type</button>
+                    @endcan
+                    @can('create', new \App\Models\Supplier)
                     <button type="button" class="btn btn-shadow btn-danger" data-toggle="modal" data-target="#addSup">Add Supplier</button>
+                    @endcan
                 </div>
             </div>
         </div>
@@ -138,6 +144,8 @@
             <form class="form w-100" action="{{route('resource.store')}}" method="POST">
                 @csrf
                 <input type="hidden" name="resource_type" value="location">
+                <input type="hidden" name="action" value="create">
+                <input type='hidden' name="redirect_url" value="/admin/location">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Location</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -184,13 +192,14 @@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="addTruck" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-modal="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <form class="form w-100" action="{{route('resource.store')}}" method="POST">
                 @csrf
-                <input type="hidden" name="resource_type" value="truck_type">
+                <input type="hidden" name="resource_type" value="trucktype">
+                <input type="hidden" name="action" value="create">
+                <input type='hidden' name="redirect_url" value="/admin/location">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Truck</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -200,7 +209,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Truck Type Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Truck Type">
+                        <input type="text" class="form-control" name="name">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -217,6 +226,8 @@
             <form class="form w-100" action="{{route('resource.store')}}" method="POST">
                 @csrf
                 <input type="hidden" name="resource_type" value="supplier">
+                <input type="hidden" name="action" value="create">
+                <input type='hidden' name="redirect_url" value="/admin/location">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Add Supplier</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
