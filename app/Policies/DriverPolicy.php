@@ -20,7 +20,8 @@ class DriverPolicy
         return $user->is_admin;
     }
 
-    public function update(User $user, Driver $driver) {
+    public function update(User $user, Driver $driver)
+    {
         return $user->is_admin;
     }
 }
