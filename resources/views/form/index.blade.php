@@ -110,15 +110,17 @@
                                 <div class="form-group col-6">
                                     <label class=" col-form-label font-weight-bold"> CAGE</label>
                                     <div class="">
-                                        <input type="number" class="form-control" id="validationCustom01" min='1'
-                                            value="0" name="cage" placeholder="Number of load cage" required="">
+                                        <input type="number" inputmode="decimal" pattern="\d*" class="form-control"
+                                            id="validationCustom01" min='1' value="0" name="cage"
+                                            placeholder="Number of load cage" required="">
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
                                     <label class="col-form-label font-weight-bold"> PALLET</label>
                                     <div class="">
-                                        <input type="number" class="form-control" id="validationCustom01" min='1'
-                                            value="0" name="pallet" placeholder="Number of load palette" required="">
+                                        <input type="number" inputmode="decimal" pattern="\d*" class="form-control"
+                                            id="validationCustom01" min='1' value="0" name="pallet"
+                                            placeholder="Number of load palette" required="">
                                     </div>
 
                                 </div>
