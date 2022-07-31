@@ -27,10 +27,28 @@
             <div class="map-video">
                 <div id="map" style="height: 500px"></div>
                 <div class="video-section">
-                    <video id="player" autoplay="true" class="video-wrapper"></video>
+                    <!-- <video id="player" autoplay="true" class="video-wrapper"></video>
                     <button id="capture" class="btn hide btn-danger">Capture</button>
                     <br>
-                    <canvas id="snapshot"></canvas>
+                    <canvas id="snapshot"></canvas> -->
+
+
+
+                    <main id="camera">
+
+                        <!-- Camera sensor -->
+                        <canvas id="camera--sensor"></canvas>
+
+                        <!-- Camera view -->
+                        <video id="camera--view" autoplay playsinline></video>
+
+                        <!-- Camera output -->
+                        <img src="//:0" alt="" id="camera--output">
+
+                        <!-- Camera trigger -->
+                        <button id="camera--trigger" class="hide">Take a picture</button>
+
+                    </main>
                 </div>
             </div>
             <div class="driver-form-section">
@@ -167,7 +185,52 @@
         }
     }
 
+
+    // Set constraints for the video stream
+    var constraints = {
+        video: {
+            facingMode: "user"
+        },
+        audio: false
+    };
+    var track = null;
+
+    // Define constants
+    const cameraView = document.querySelector("#camera--view"),
+        cameraOutput = document.querySelector("#camera--output"),
+        cameraSensor = document.querySelector("#camera--sensor"),
+        cameraTrigger = document.querySelector("#camera--trigger");
+
+    // Access the device camera and stream to cameraView
+    function cameraStart() {
+        navigator.mediaDevices
+            .getUserMedia(constraints)
+            .then(function(stream) {
+                track = stream.getTracks()[0];
+                cameraView.srcObject = stream;
+            })
+            .catch(function(error) {
+                console.error("Oops. Something is broken.", error);
+            });
+    }
+
+    // Take a picture when cameraTrigger is tapped
+    cameraTrigger.onclick = function() {
+        cameraSensor.width = cameraView.videoWidth;
+        cameraSensor.height = cameraView.videoHeight;
+        cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+        cameraOutput.src = cameraSensor.toDataURL("image/webp");
+        cameraOutput.classList.add("taken");
+
+        document.forms[0].image.value = cameraOutput.src;
+        // track.stop();
+    };
+
+    // Start the video stream when the window loads
+    window.addEventListener("load", cameraStart, false);
+
     function checkIfAllOk() {
+        document.getElementById("camera--trigger").click();
         with(document.forms[0]) {
             if (image.value === '') {
                 alert("Please capture the image");
@@ -175,33 +238,33 @@
             }
         }
     }
-    var player = document.getElementById("player");
-    var snapshotCanvas = document.getElementById("snapshot");
-    var captureButton = document.getElementById("capture");
-    var handleSuccess = function(stream) {
-        // Attach the video stream to the video element and autoplay.
-        player.srcObject = stream;
-    };
+    // var player = document.getElementById("player");
+    // var snapshotCanvas = document.getElementById("snapshot");
+    // var captureButton = document.getElementById("capture");
+    // var handleSuccess = function(stream) {
+    //     // Attach the video stream to the video element and autoplay.
+    //     player.srcObject = stream;
+    // };
 
-    function handleVideo(stream) {
-        video.src = window.URL.createObjectURL(stream);
-    }
+    // function handleVideo(stream) {
+    //     video.src = window.URL.createObjectURL(stream);
+    // }
 
-    if (captureButton) captureButton.addEventListener("click", function() {
-        var context = snapshot.getContext("2d");
-        // Draw the video frame to the canvas.
-        context.drawImage(
-            player,
-            0,
-            0,
-            snapshotCanvas.width,
-            snapshotCanvas.height
-        );
-        document.forms[0].image.value = context.canvas.toDataURL()
-    });
-    navigator.mediaDevices.getUserMedia({
-        video: true
-    }).then(handleSuccess);
+    // if (captureButton) captureButton.addEventListener("click", function() {
+    //     var context = snapshot.getContext("2d");
+    //     // Draw the video frame to the canvas.
+    //     context.drawImage(
+    //         player,
+    //         0,
+    //         0,
+    //         snapshotCanvas.width,
+    //         snapshotCanvas.height
+    //     );
+    //     document.forms[0].image.value = context.canvas.toDataURL()
+    // });
+    // navigator.mediaDevices.getUserMedia({
+    //     video: true
+    // }).then(handleSuccess);
 
 
     $(document).ready(function() {
