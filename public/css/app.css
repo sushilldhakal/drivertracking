@@ -124,15 +124,28 @@ img#camera--output, #camera--sensor {
 }
 
 #map {
+    height:500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.map-data {
+    overflow: hidden;
+}
+
+#map-form {
     overflow: hidden;
     pointer-events: none;
+    height:100%;
 }
 .map-video {
     position: relative;
+    height:700px;
 }
+
 .video-section {
     position: absolute;
-    bottom: 10px;
+    bottom: 115px;
     z-index: 1111;
     max-width: 100%;
     width: 100%;
@@ -169,7 +182,7 @@ img#camera--output, #camera--sensor {
     align-items: center;
     border-radius: 65px;
     box-shadow: 0 0 16px rgb(0 0 0 / 20%);
-    top: -60px;
+    top: -160px;
     z-index: 1111;
     margin: 0 auto;
     left: 5%;
